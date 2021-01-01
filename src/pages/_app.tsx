@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { ChakraProvider } from "@chakra-ui/react"
-import { createTheme } from "../styles/theme"
+import { createTheme } from "../../styles/theme"
 import { useMemo } from 'react';
-import { AvailableLocale } from '../lib/locale';
+import { AvailableLocale } from '../../lib/locale';
 
 function MyApp({ Component, pageProps }) {
   const { locale } = useRouter();

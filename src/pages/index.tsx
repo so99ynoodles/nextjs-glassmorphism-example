@@ -1,5 +1,6 @@
 import { Box, Container, Heading, Text } from '@chakra-ui/react'
 import Head from 'next/head'
+import Model from '../components/Model'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Heading as="header" position="sticky" shadow="md" padding={4} backgroundColor="white" color="blue.900">
         Hello World
       </Heading>
+      <Model />
       <Container mt={8}>
         <Text color="blue.900" mb={4}>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi dolorum minima quibusdam autem, provident, debitis, libero doloremque commodi quidem optio laudantium similique iure. Ipsa illum voluptatibus minus alias, nihil obcaecati.
