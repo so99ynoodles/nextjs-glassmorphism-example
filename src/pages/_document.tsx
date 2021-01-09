@@ -18,9 +18,6 @@ class MyDocument extends Document {
         <Head></Head>
         <body>
           <Main />
-          <script>
-            window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function () {}
-          </script>
           <NextScript />
         </body>
       </Html>
