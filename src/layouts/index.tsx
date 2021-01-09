@@ -108,7 +108,7 @@ const Search = styled(motion.div)`
 
 const SmallNavigation = styled(motion.nav)`
   display: none;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
 
   ul {
     display: flex;
