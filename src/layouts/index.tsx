@@ -7,7 +7,6 @@ import { DocumentIcon } from '../assets/icons/Document';
 import { HomeIcon } from '../assets/icons/Home';
 import { LogoIcon } from '../assets/icons/Logo';
 import { UserIcon } from '../assets/icons/User';
-import { WorkIcon } from '../assets/icons/Work';
 import { mq } from '../../lib/media-query';
 import { ActionButton } from '../components/ActionButton';
 import { Responsive } from '../components/Responsive';
@@ -64,7 +63,8 @@ const Main = styled(motion.main)`
   border: 1px solid var(--border-color);
   box-shadow: var(--box-shadow-lg);
   flex-grow: 1;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   @media ${mq.max.laptop} {
     padding: 0.5rem;
@@ -141,9 +141,9 @@ export const Layout = ({ children }) => {
               <NavItem name="About Me" href="/about">
                 <UserIcon className="nav-icon" />
               </NavItem>
-              <NavItem name="My Work" href="/work">
+              {/* <NavItem name="My Work" href="/work">
                 <WorkIcon className="nav-icon" />
-              </NavItem>
+              </NavItem> */}
               <NavItem name="Blog" href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
@@ -176,9 +176,9 @@ export const Layout = ({ children }) => {
               <NavItem name="About Me" href="/about">
                 <UserIcon className="nav-icon" />
               </NavItem>
-              <NavItem name="My Work" href="/work">
+              {/* <NavItem name="My Work" href="/work">
                 <WorkIcon className="nav-icon" />
-              </NavItem>
+              </NavItem> */}
               <NavItem name="Blog" href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
