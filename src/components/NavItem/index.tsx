@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useHover } from '@react-aria/interactions';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { mq } from '../../../lib/media-query';
 
 interface ListItemProps {
   isActive?: boolean;
@@ -19,6 +20,13 @@ const ListItem = styled.li<ListItemProps>`
   background: ${(props) =>
     props.isActive ? 'rgba(var(--bg-color), 0.6)' : 'transparent'};
   box-shadow: ${(props) => (props.isActive ? 'var(--box-shadow-md)' : 'none')};
+
+  @media ${mq.max.laptop} {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+  }
 `;
 
 interface NavItemProps {

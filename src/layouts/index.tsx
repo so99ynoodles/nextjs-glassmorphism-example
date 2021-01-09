@@ -14,6 +14,8 @@ import { MenuIcon } from '../assets/icons/Menu';
 import { Responsive } from '../components/Responsive';
 import { SearchInput } from '../components/SearchInput';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
+import React, { useState } from 'react';
+import { CheveronMenuIcon } from '../assets/icons/CheveronMenu';
 
 const Root = styled(motion.div)`
   height: 100%;
@@ -43,6 +45,16 @@ const Container = styled(motion.div)`
   @media ${mq.max.laptop} {
     flex-direction: column;
     padding: 0.5rem;
+  }
+
+  .nav-icon {
+    width: 3rem;
+    height: 3rem;
+
+    @media ${mq.max.laptop} {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 `;
 
@@ -83,16 +95,6 @@ const Navigation = styled(motion.nav)`
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
-
-  .nav-icon {
-    width: 3rem;
-    height: 3rem;
-
-    @media ${mq.max.tablet} {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
 `;
 
 const Search = styled(motion.div)`
@@ -105,7 +107,23 @@ const Search = styled(motion.div)`
   }
 `;
 
+const SmallNavigation = styled(motion.nav)`
+  display: none;
+  margin-bottom: 0.5rem;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media ${mq.max.laptop} {
+    display: block;
+  }
+`;
+
 export const Layout = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Root>
       <Container>
@@ -136,16 +154,41 @@ export const Layout = ({ children }) => {
             <SearchInput />
           </Search>
           <Responsive desktop>
-            <ActionButton>
+            <ActionButton name="Configuration">
               <ConfigIcon className="nav-icon" />
             </ActionButton>
           </Responsive>
           <Responsive mobile tablet laptop>
-            <ActionButton name="Menu">
-              <MenuIcon className="nav-icon" />
+            <ActionButton
+              small
+              onPress={() => setIsOpen(!isOpen)}
+              name="Open Menu"
+            >
+              <CheveronMenuIcon isOpen={isOpen} className="nav-icon" />
             </ActionButton>
           </Responsive>
         </Navigation>
+        {isOpen && (
+          <SmallNavigation>
+            <ul style={{ display: 'flex' }}>
+              <NavItem name="Home" exact href="/">
+                <HomeIcon className="nav-icon" />
+              </NavItem>
+              <NavItem name="About Me" href="/about">
+                <UserIcon className="nav-icon" />
+              </NavItem>
+              <NavItem name="My Work" href="/work">
+                <WorkIcon className="nav-icon" />
+              </NavItem>
+              <NavItem name="Blog" href="/blog">
+                <DocumentIcon className="nav-icon" />
+              </NavItem>
+              <ActionButton name="Configuration">
+                <ConfigIcon className="nav-icon" />
+              </ActionButton>
+            </ul>
+          </SmallNavigation>
+        )}
         <Main role="main">{children}</Main>
       </Container>
     </Root>

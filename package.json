@@ -16,6 +16,7 @@
     "@next/mdx": "^10.0.5",
     "@react-aria/button": "^3.3.0",
     "@react-aria/interactions": "^3.3.2",
+    "@react-aria/overlays": "^3.6.0",
     "@react-aria/searchfield": "^3.1.1",
     "@react-aria/ssr": "^3.0.1",
     "@react-aria/visually-hidden": "^3.2.1",

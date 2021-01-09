@@ -102,7 +102,7 @@ export default function Home({ allPostsData }) {
                 target="_blank"
                 href="https://github.com/so99ynoodles"
               >
-                <GithubIcon fill="#000" size="2rem" />
+                <GithubIcon size="2rem" />
                 <VisuallyHidden elementType="span">Github Page</VisuallyHidden>
               </a>
             </li>
@@ -112,7 +112,7 @@ export default function Home({ allPostsData }) {
                 target="_blank"
                 href="https://twitter.com/so99ynoodles"
               >
-                <TwitterIcon fill="#1da1f2" size="2rem" />
+                <TwitterIcon size="2rem" />
                 <VisuallyHidden elementType="span">Twitter Page</VisuallyHidden>
               </a>
             </li>
