@@ -18,6 +18,7 @@ class MyDocument extends Document {
         <Head></Head>
         <body>
           <Main />
+          <script src="disableDevTools.js" />
           <NextScript />
         </body>
       </Html>
