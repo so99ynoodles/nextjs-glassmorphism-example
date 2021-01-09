@@ -48,6 +48,7 @@ const Avatar = styled(motion.div)`
     max-width: 64px;
     max-height: 64px;
     box-shadow: var(--box-shadow-md);
+    margin-right: 1.5rem;
   }
 `;
 
@@ -72,7 +73,10 @@ const Heading = styled(motion.h1)`
 const Links = styled(motion.ul)`
   margin-top: 3rem;
   display: flex;
-  gap: 0.5rem;
+
+  * + * {
+    margin-left: 0.5rem;
+  }
 
   @media ${mq.max.laptop} {
     margin-top: 1rem;
@@ -81,7 +85,6 @@ const Links = styled(motion.ul)`
 
 const UserHeading = styled.div`
   display: flex;
-  gap: 1rem;
   margin-bottom: 2rem;
 `;
 

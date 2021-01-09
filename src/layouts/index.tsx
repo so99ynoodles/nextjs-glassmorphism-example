@@ -39,12 +39,10 @@ const Container = styled(motion.div)`
   backdrop-filter: blur(0.25rem);
   display: flex;
   flex-direction: row;
-  gap: 2rem;
 
   @media ${mq.max.laptop} {
     flex-direction: column;
     padding: 0.5rem;
-    gap: 0.5rem;
   }
 `;
 
@@ -67,7 +65,7 @@ const Navigation = styled(motion.nav)`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  margin-right: 2rem;
 
   ul {
     display: flex;
@@ -82,10 +80,8 @@ const Navigation = styled(motion.nav)`
   @media ${mq.max.laptop} {
     flex-direction: row;
     padding: 1rem 1rem 0 1rem;
-  }
-
-  @media ${mq.max.tablet} {
-    gap: 1rem;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
   }
 
   .nav-icon {
@@ -105,6 +101,7 @@ const Search = styled(motion.div)`
 
   @media ${mq.max.laptop} {
     display: block;
+    margin: 0 1rem;
   }
 `;
 
