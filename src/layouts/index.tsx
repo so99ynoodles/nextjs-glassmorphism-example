@@ -90,7 +90,7 @@ const Navigation = styled(motion.nav)`
 
   @media ${mq.max.laptop} {
     flex-direction: row;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
@@ -108,7 +108,7 @@ const Search = styled(motion.div)`
 
 const SmallNavigation = styled(motion.nav)`
   display: none;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
 
   ul {
     display: flex;
