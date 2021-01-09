@@ -7,9 +7,9 @@ import { CheveronRightIcon } from '../../assets/icons/CheveronRight';
 import { mq } from '../../../lib/media-query';
 import { getDateFormatted } from '../../utils/article/entity';
 import { Tag } from '../Tag';
+import { useRouter } from 'next/router';
 
 interface BlogCardProps extends MotionProps {
-  onPress?: () => void;
   article: Article;
 }
 
@@ -100,10 +100,12 @@ const Cheveron = styled.div`
 
 export const BlogCard: React.FC<BlogCardProps> = ({
   article,
-  onPress,
   ...motionProps
 }) => {
-  const { pressProps, isPressed } = usePress({ onPress });
+  const { push } = useRouter();
+  const { pressProps, isPressed } = usePress({
+    onPress: () => push(`/blog/posts/${article.slug}`),
+  });
   const { hoverProps, isHovered } = useHover({});
   return (
     <Card

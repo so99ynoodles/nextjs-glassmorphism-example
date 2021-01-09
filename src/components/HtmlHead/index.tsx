@@ -29,6 +29,7 @@ export const HtmlHead: React.FC<HtmlHeadProps> = ({
       description,
     },
   };
+
   if (url) {
     seoProps.openGraph.url = new URL(url, SITE_URL).toString();
   }
