@@ -20,10 +20,6 @@ module.exports = {
       },
     ];
   },
-  i18n: {
-    locales: ['en', 'ja', 'kr'],
-    defaultLocale: 'ja',
-  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(new RemoveServiceWorkerPlugin());
     return config;
