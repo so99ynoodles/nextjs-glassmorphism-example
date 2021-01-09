@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
-import GoogleFonts from 'next-google-fonts';
 import { NextSeoProps } from 'next-seo/lib/types';
 
 import { SITE_NAME, SITE_URL } from '../../utils/env';

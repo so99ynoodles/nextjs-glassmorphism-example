@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import Head from 'next/head';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { GithubIcon } from '../assets/icons/Github';
 import { TwitterIcon } from '../assets/icons/Twitter';
