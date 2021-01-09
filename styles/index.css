@@ -18,6 +18,7 @@
     )
     fixed;
   --bg-color: 255, 255, 255;
+  --input-bg-color: 255, 255, 255;
   --font-color-main: #334e68;
   --font-color-sub: #627d98;
   --font-color-help: #9fb3c8;
@@ -30,7 +31,7 @@
   --box-shadow-lg: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --body-bg-color: linear-gradient(
         to right bottom,
@@ -41,6 +42,7 @@
       )
       fixed;
     --bg-color: 16, 42, 67;
+    --input-bg-color: 255, 255, 255;
     --font-color-main: #d9e2ec;
     --font-color-sub: #9fb3c8;
     --font-color-help: #829ab1;
@@ -52,7 +54,7 @@
     --box-shadow-md: none;
     --box-shadow-lg: none;
   }
-} */
+}
 
 html {
   height: 100%;
@@ -63,7 +65,6 @@ html {
 #__next {
   height: 100%;
   width: 100%;
-  padding: 2.5rem;
 }
 
 body {
@@ -71,6 +72,13 @@ body {
   width: 100%;
   background: var(--body-bg-color);
   color: var(--font-color-main);
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }
 
 ul {

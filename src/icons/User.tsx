@@ -7,9 +7,11 @@ export const UserIcon: React.FC<TwoColorIconProps & MotionProps> = ({
   subFill,
   size = '1rem',
   isActive,
+  className,
   ...props
 }) => (
   <motion.svg
+    className={className}
     width={size}
     height={size}
     viewBox="0 0 48 48"

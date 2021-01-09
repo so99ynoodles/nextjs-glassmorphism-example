@@ -12,9 +12,11 @@
   "dependencies": {
     "@emotion/react": "^11.1.2",
     "@emotion/styled": "^11.0.0",
+    "@react-aria/button": "^3.3.0",
     "@react-aria/interactions": "^3.3.2",
+    "@react-aria/searchfield": "^3.1.1",
     "@react-aria/visually-hidden": "^3.2.1",
-    "@types/classnames": "^2.2.11",
+    "@react-stately/searchfield": "^3.1.1",
     "classnames": "^2.2.6",
     "framer-motion": "^3.1.1",
     "next": "10.0.0",
@@ -22,6 +24,7 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.12.0",

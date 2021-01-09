@@ -1,5 +1,10 @@
-export const LogoIcon: React.FC<IconProps> = ({ size = '1rem', fill }) => (
+export const LogoIcon: React.FC<IconProps> = ({
+  size = '1rem',
+  fill,
+  className,
+}) => (
   <svg
+    className={className}
     width={size}
     height={size}
     viewBox="0 0 48 48"

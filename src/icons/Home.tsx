@@ -7,11 +7,13 @@ export const HomeIcon: React.FC<TwoColorIconProps & MotionProps> = ({
   subFill,
   size = '1rem',
   isActive,
+  className,
   ...props
 }) => (
   <motion.svg
     width={size}
     height={size}
+    className={className}
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
