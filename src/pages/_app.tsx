@@ -1,16 +1,13 @@
-import { useRouter } from 'next/router';
-import { ChakraProvider } from "@chakra-ui/react"
-import { createTheme } from "../../styles/theme"
-import { useMemo } from 'react';
-import { AvailableLocale } from '../../lib/locale';
-
+import { Layout } from '../layouts';
+import '../../styles/index.css';
+ 
 function MyApp({ Component, pageProps }) {
-  const { locale } = useRouter();
-  const theme = useMemo(() => createTheme(locale as AvailableLocale), [locale])
+
   return (
-    <ChakraProvider theme={theme}>
+    <Layout>
       <Component {...pageProps} />
-    </ChakraProvider>)
+    </Layout>
+  )
 }
 
 export default MyApp
