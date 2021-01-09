@@ -30,7 +30,7 @@
   --box-shadow-md: 0px 0.5rem 1rem rgba(84, 209, 219, 0.3);
   --box-shadow-lg: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --body-bg-color: linear-gradient(
@@ -54,7 +54,7 @@
     --box-shadow-md: none;
     --box-shadow-lg: none;
   }
-}
+} */
 
 html {
   height: 100%;

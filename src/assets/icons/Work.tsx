@@ -1,5 +1,5 @@
 import { motion, MotionProps } from 'framer-motion';
-import { cx } from '../../lib/classnames';
+import { cx } from '../../../lib/classnames';
 
 export const WorkIcon: React.FC<TwoColorIconProps & MotionProps> = ({
   fill,
@@ -16,6 +16,10 @@ export const WorkIcon: React.FC<TwoColorIconProps & MotionProps> = ({
     height={size}
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
+    whileHover={{
+      scale: 1.2,
+    }}
+    whileTap={{ scale: 0.9 }}
     {...props}
   >
     <path

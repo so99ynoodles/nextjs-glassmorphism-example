@@ -3,18 +3,24 @@ import { HTMLAttributes, useRef } from 'react';
 import { useSearchField } from '@react-aria/searchfield';
 import { useSearchFieldState } from '@react-stately/searchfield';
 import { mq } from '../../../lib/media-query';
-import { SearchIcon } from '../../icons/Search';
+import { SearchIcon } from '../../assets/icons/Search';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 const SearchInputContainer = styled.div`
   display: flex;
   border-radius: 2rem;
+  border: 1px solid var(--border-color);
   background: rgba(var(--bg-color, 0.4));
   padding: 1rem 2rem;
-  box-shadow: var(--box-shadow-md);
+  box-shadow: var(--box-shadow-lg);
 
   @media ${mq.max.laptop} {
     padding: 0.75rem 1.5rem;
+  }
+
+  @media ${mq.max.mobile} {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
   }
 `;
 

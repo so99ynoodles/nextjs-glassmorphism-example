@@ -2,15 +2,15 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { NavItem } from '../components/NavItem';
-import { ConfigIcon } from '../icons/Config';
-import { DocumentIcon } from '../icons/Document';
-import { HomeIcon } from '../icons/Home';
-import { LogoIcon } from '../icons/Logo';
-import { UserIcon } from '../icons/User';
-import { WorkIcon } from '../icons/Work';
+import { ConfigIcon } from '../assets/icons/Config';
+import { DocumentIcon } from '../assets/icons/Document';
+import { HomeIcon } from '../assets/icons/Home';
+import { LogoIcon } from '../assets/icons/Logo';
+import { UserIcon } from '../assets/icons/User';
+import { WorkIcon } from '../assets/icons/Work';
 import { mq } from '../../lib/media-query';
 import { ActionButton } from '../components/ActionButton';
-import { MenuIcon } from '../icons/Menu';
+import { MenuIcon } from '../assets/icons/Menu';
 import { Responsive } from '../components/Responsive';
 import { SearchInput } from '../components/SearchInput';
 
@@ -54,6 +54,11 @@ const Main = styled(motion.main)`
   border: 1px solid var(--border-color);
   box-shadow: var(--box-shadow-lg);
   flex-grow: 1;
+  overflow: scroll;
+
+  @media ${mq.max.laptop} {
+    padding: 0.5rem;
+  }
 `;
 
 const Navigation = styled(motion.nav)`

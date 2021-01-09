@@ -1,11 +1,14 @@
 import { Layout } from '../layouts';
+import { SSRProvider } from '@react-aria/ssr';
 import '../../styles/index.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <SSRProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SSRProvider>
   );
 }
 
