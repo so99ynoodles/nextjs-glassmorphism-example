@@ -1,13 +1,35 @@
+import React from 'react';
 import { Layout } from '../layouts';
 import { SSRProvider } from '@react-aria/ssr';
 import { OverlayProvider } from '@react-aria/overlays';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../../next-seo.config';
+import * as gtag from '../utils/analytics/gtag';
 
 import '../../styles/index.css';
+import '../../styles/prism.scss';
+import '../../styles/remark.scss';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  React.useEffect(() => {
+    if (!gtag.GA_TRACKING_ID) return;
+
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <SSRProvider>
       <OverlayProvider style={{ height: '100%', width: '100%' }}>
+        <DefaultSeo {...SEO} />
         <Layout>
           <Component {...pageProps} />
         </Layout>
