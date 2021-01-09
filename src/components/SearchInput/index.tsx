@@ -6,7 +6,7 @@ import { mq } from '../../../lib/media-query';
 import { SearchIcon } from '../../assets/icons/Search';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
-const SearchInputContainer = styled.div`
+const SearchInputContainer = styled.label`
   display: flex;
   border-radius: 2rem;
   border: 1px solid var(--border-color);
@@ -49,7 +49,6 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   const { inputProps, labelProps } = useSearchField(
     {
       placeholder,
-      id: 'Search',
       'aria-label': 'Search',
       onSubmit: (value) => console.log(value),
     },
@@ -57,10 +56,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
     ref
   );
   return (
-    <SearchInputContainer role="Search">
-      <VisuallyHidden>
-        <label {...labelProps}>Search</label>
-      </VisuallyHidden>
+    <SearchInputContainer {...labelProps}>
       <Input {...inputProps} />
       <SearchIcon size="1.5rem" subFill="transparent" />
     </SearchInputContainer>

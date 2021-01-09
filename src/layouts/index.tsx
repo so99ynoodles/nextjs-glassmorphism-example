@@ -114,7 +114,7 @@ export const Layout = ({ children }) => {
         <Navigation role="navigation" aria-label="navigation">
           <Link href="/" passHref>
             <a>
-              <LogoIcon className="nav-icon" fill="#62B0E8" />
+              <LogoIcon className="nav-icon" fill="var(--primary-color)" />
             </a>
           </Link>
           <Responsive desktop>

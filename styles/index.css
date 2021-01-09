@@ -19,6 +19,7 @@
     fixed;
   --bg-color: 255, 255, 255;
   --input-bg-color: 255, 255, 255;
+  --primary-color: #62b0e8;
   --font-color-main: #334e68;
   --font-color-sub: #627d98;
   --font-color-help: #9fb3c8;
@@ -30,7 +31,7 @@
   --box-shadow-md: 0px 0.5rem 1rem rgba(84, 209, 219, 0.3);
   --box-shadow-lg: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
 }
-/* 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --body-bg-color: linear-gradient(
@@ -43,18 +44,19 @@
       fixed;
     --bg-color: 16, 42, 67;
     --input-bg-color: 255, 255, 255;
+    --primary-color: #dceefb;
     --font-color-main: #d9e2ec;
     --font-color-sub: #9fb3c8;
     --font-color-help: #829ab1;
-    --icon-color-active-main: #4098d7;
-    --icon-color-active-sub: #62b0e8;
+    --icon-color-active-main: #b6e0fe;
+    --icon-color-active-sub: #fff;
     --icon-color-inactive-main: #9fb3c8;
     --icon-color-inactive-sub: #bcccdc;
     --border-color: transparent;
     --box-shadow-md: none;
     --box-shadow-lg: none;
   }
-} */
+}
 
 html {
   height: 100%;

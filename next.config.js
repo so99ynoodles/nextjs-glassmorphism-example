@@ -1,6 +1,9 @@
-module.exports = {
-    i18n: {
-      locales: ['en', 'ja', 'kr'],
-      defaultLocale: 'ja',
-    }
-  }
+const withMDX = require('@next/mdx')();
+
+module.exports = withMDX({
+  pageExtensions: ['tsx', 'mdx'],
+  i18n: {
+    locales: ['en', 'ja', 'kr'],
+    defaultLocale: 'ja',
+  },
+});

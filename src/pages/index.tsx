@@ -37,7 +37,7 @@ const Section = styled.section`
 const Avatar = styled(motion.div)`
   border-radius: 50%;
   overflow: hidden;
-  background: rgba(var(--bg-color), 0.6);
+  background: var(--primary-color);
   border: 3px solid var(--border-color);
   max-width: 240px;
   max-height: 240px;
@@ -85,7 +85,7 @@ const UserHeading = styled.div`
   margin-bottom: 2rem;
 `;
 
-export default function Home() {
+export default function Home({ allPostsData }) {
   return (
     <>
       <Head>
@@ -198,6 +198,7 @@ export default function Home() {
           <Responsive desktop>
             <SearchInput />
           </Responsive>
+          {/* {allPostsData.map((post) => JSON.stringify(post))} */}
         </Section>
       </Container>
     </>
