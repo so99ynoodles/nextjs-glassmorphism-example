@@ -39,7 +39,7 @@ export const HtmlHead: React.FC<HtmlHeadProps> = ({
 
   return (
     <>
-      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" />
+      {/* <GoogleFonts href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" /> */}
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
