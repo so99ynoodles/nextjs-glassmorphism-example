@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { GetStaticProps } from 'next';
 import { getArticle } from '../utils/article/fs.server';
 import { BlogCard } from '../components/BlogCard';
+import { HtmlHead } from '../components/HtmlHead';
 
 const Container = styled.div`
   display: flex;
@@ -95,9 +96,7 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ pickupArticles }) => {
   return (
     <>
-      <Head>
-        <title>tk.dev</title>
-      </Head>
+      <HtmlHead />
       <Container>
         <HeadingSection>
           <SubHeading

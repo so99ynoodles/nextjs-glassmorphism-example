@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
+import GoogleFonts from 'next-google-fonts';
 import { NextSeoProps } from 'next-seo/lib/types';
 
 import { SITE_NAME, SITE_URL } from '../../utils/env';
@@ -38,7 +39,11 @@ export const HtmlHead: React.FC<HtmlHeadProps> = ({
 
   return (
     <>
+      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" />
       <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NextSeo {...seoProps} />

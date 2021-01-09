@@ -16,7 +16,7 @@ interface BlogCardProps extends MotionProps {
 const Card = styled<any>(motion.div)`
   position: relative;
   border-radius: 2rem;
-  background: rgba(var(--bg-color), 0.4);
+  background: rgba(var(--bg-color), 0.6);
   box-shadow: var(--box-shadow-lg);
   padding: 1rem 2.5rem 1rem 1.25rem;
   border: 1px solid var(--border-color);
@@ -63,7 +63,7 @@ const MobileImageContainer = styled(ImageContainer)`
 `;
 
 const Content = styled.div`
-  h3 {
+  strong {
     font-size: 1.25rem;
     font-weight: 900;
     line-height: 2rem;
@@ -135,7 +135,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
               article.frontMatter.emoji
             )}
           </MobileImageContainer>
-          <h3>{article.frontMatter.title}</h3>
+          <strong>{article.frontMatter.title}</strong>
         </div>
         <p>
           <DateText>{getDateFormatted(article)}</DateText>

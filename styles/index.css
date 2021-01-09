@@ -19,7 +19,7 @@
     fixed;
   --bg-color: 255, 255, 255;
   --input-bg-color: 255, 255, 255;
-  --tag-bg-color: #62b0e8;
+  --tag-bg-color: #334e68;
   --primary-color: #62b0e8;
   --font-color-main: #334e68;
   --font-color-sub: #627d98;
@@ -61,7 +61,8 @@
 }
 
 html {
-  height: -webkit-fill-available;
+  min-height: 100vh;
+  height: 100%;
   background: rgba(var(--bg-color), 1);
 }
 
@@ -71,8 +72,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+  height: 100%;
   width: 100%;
   background: var(--body-bg-color);
   color: var(--font-color-main);
