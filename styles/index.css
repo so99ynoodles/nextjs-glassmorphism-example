@@ -19,6 +19,7 @@
     fixed;
   --bg-color: 255, 255, 255;
   --input-bg-color: 255, 255, 255;
+  --tag-bg-color: #62b0e8;
   --primary-color: #62b0e8;
   --font-color-main: #334e68;
   --font-color-sub: #627d98;
@@ -44,6 +45,7 @@
       fixed;
     --bg-color: 16, 42, 67;
     --input-bg-color: 255, 255, 255;
+    --tag-bg-color: #102a43;
     --primary-color: #dceefb;
     --font-color-main: #d9e2ec;
     --font-color-sub: #9fb3c8;

@@ -4,7 +4,6 @@ import { useSearchField } from '@react-aria/searchfield';
 import { useSearchFieldState } from '@react-stately/searchfield';
 import { mq } from '../../../lib/media-query';
 import { SearchIcon } from '../../assets/icons/Search';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 const SearchInputContainer = styled.label`
   display: flex;
@@ -13,9 +12,11 @@ const SearchInputContainer = styled.label`
   background: rgba(var(--bg-color, 0.4));
   padding: 1rem 2rem;
   box-shadow: var(--box-shadow-lg);
+  max-width: 18rem;
 
   @media ${mq.max.laptop} {
     padding: 0.75rem 1.5rem;
+    max-width: 100%;
   }
 
   @media ${mq.max.mobile} {

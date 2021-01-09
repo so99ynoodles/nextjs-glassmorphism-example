@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import Head from 'next/head';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { GithubIcon } from '../assets/icons/Github';
 import { TwitterIcon } from '../assets/icons/Twitter';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
-import { Responsive } from '../components/Responsive';
 import { SearchInput } from '../components/SearchInput';
 import { mq } from '../../lib/media-query';
 import { motion } from 'framer-motion';
+import { GetStaticProps } from 'next';
+import { getArticle } from '../utils/article/fs.server';
+import { BlogCard } from '../components/BlogCard';
 
 const Container = styled.div`
   display: flex;
@@ -17,19 +19,33 @@ const Container = styled.div`
   }
 `;
 
-const Section = styled.section`
+const HeadingSection = styled.section`
   padding: 2rem;
+  width: 100%;
 
   @media ${mq.max.laptop} {
     padding: 2rem 1.5rem;
   }
 
   @media ${mq.max.tablet} {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   @media ${mq.max.mobile} {
     padding: 1rem 0.5rem;
+  }
+`;
+
+const BlogSection = styled.section`
+  padding: 0.5rem;
+  width: 100%;
+
+  @media ${mq.max.tablet} {
+    padding: 1rem 0.75rem;
+  }
+
+  @media ${mq.max.mobile} {
+    padding: 0;
   }
 `;
 
@@ -51,6 +67,14 @@ const Heading = styled(motion.h1)`
   }
 `;
 
+const SearchWrapper = styled(motion.div)`
+  margin-bottom: 2rem;
+
+  @media ${mq.max.laptop} {
+    display: none;
+  }
+`;
+
 const Links = styled(motion.ul)`
   margin-top: 3rem;
   display: flex;
@@ -64,37 +88,36 @@ const Links = styled(motion.ul)`
   }
 `;
 
-const UserHeading = styled.div`
-  display: flex;
-  margin-bottom: 2rem;
-`;
+interface HomePageProps {
+  pickupArticles: Article[];
+}
 
-export default function Home({ allPostsData }) {
+export const HomePage: React.FC<HomePageProps> = ({ pickupArticles }) => {
   return (
     <>
       <Head>
         <title>tk.dev</title>
       </Head>
       <Container>
-        <Section>
+        <HeadingSection>
           <SubHeading
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ duration: 0.3 }}
           >
             Hi, I'm a
           </SubHeading>
           <Heading
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
           >
             Developer.
           </Heading>
           <Links
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
+            transition={{ delay: 0.6, duration: 0.3 }}
           >
             <li>
               <a
@@ -117,14 +140,56 @@ export default function Home({ allPostsData }) {
               </a>
             </li>
           </Links>
-        </Section>
-        <Section>
-          <Responsive desktop>
+        </HeadingSection>
+        <BlogSection>
+          <SearchWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.3 }}
+          >
             <SearchInput />
-          </Responsive>
-          {/* {allPostsData.map((post) => JSON.stringify(post))} */}
-        </Section>
+          </SearchWrapper>
+          <motion.div
+            variants={{
+              hide: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  delay: 1.2,
+                  duration: 0.3,
+                  staggerChildren: 0.4,
+                  delayChildren: 1,
+                },
+              },
+            }}
+            initial="hide"
+            animate="show"
+          >
+            {pickupArticles.map((article) => (
+              <BlogCard
+                key={article.frontMatter.title}
+                article={article}
+              ></BlogCard>
+            ))}
+          </motion.div>
+        </BlogSection>
       </Container>
     </>
   );
-}
+};
+
+export default HomePage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const pickupArticles = await Promise.all(
+    ['example', 'example2', 'example3', 'example4'].map(
+      async (slug) => await getArticle(slug, '/posts')
+    )
+  );
+
+  return {
+    props: {
+      pickupArticles,
+    } as HomePageProps,
+  };
+};

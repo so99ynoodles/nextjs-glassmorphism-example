@@ -10,7 +10,6 @@ import { UserIcon } from '../assets/icons/User';
 import { WorkIcon } from '../assets/icons/Work';
 import { mq } from '../../lib/media-query';
 import { ActionButton } from '../components/ActionButton';
-import { MenuIcon } from '../assets/icons/Menu';
 import { Responsive } from '../components/Responsive';
 import { SearchInput } from '../components/SearchInput';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
@@ -27,7 +26,7 @@ const Root = styled(motion.div)`
   }
 
   @media ${mq.max.mobile} {
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 `;
 
