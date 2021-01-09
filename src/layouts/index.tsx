@@ -13,6 +13,7 @@ import { ActionButton } from '../components/ActionButton';
 import { MenuIcon } from '../assets/icons/Menu';
 import { Responsive } from '../components/Responsive';
 import { SearchInput } from '../components/SearchInput';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 const Root = styled(motion.div)`
   height: 100%;
@@ -114,6 +115,7 @@ export const Layout = ({ children }) => {
         <Navigation role="navigation" aria-label="navigation">
           <Link href="/" passHref>
             <a>
+              <VisuallyHidden elementType="span">Logo</VisuallyHidden>
               <LogoIcon className="nav-icon" fill="var(--primary-color)" />
             </a>
           </Link>
@@ -142,7 +144,7 @@ export const Layout = ({ children }) => {
             </ActionButton>
           </Responsive>
           <Responsive mobile tablet laptop>
-            <ActionButton>
+            <ActionButton name="Menu">
               <MenuIcon className="nav-icon" />
             </ActionButton>
           </Responsive>

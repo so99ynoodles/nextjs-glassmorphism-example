@@ -28,7 +28,7 @@ const Input = styled.input`
   border: none;
   outline: none;
   background: transparent;
-  color: var(--font-color-sub);
+  color: var(--font-color-main);
   width: 100%;
 
   ::placeholder {
