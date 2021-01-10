@@ -14,7 +14,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={this.props.locale}>
+      <Html lang="ja">
         <Head />
         <body>
           <Main />
