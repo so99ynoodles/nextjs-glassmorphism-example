@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { SearchInput } from '../components/SearchInput';
 import { mq } from '../../lib/media-query';
-import { motion } from 'framer-motion';
 import { GetStaticProps } from 'next';
 import { getArticles } from '../utils/article/fs.server';
 import { BlogCard } from '../components/BlogCard';
@@ -55,7 +54,7 @@ const BlogSection = styled.section`
   }
 `;
 
-const SearchWrapper = styled(motion.div)`
+const SearchWrapper = styled.div`
   margin-bottom: 2rem;
 
   @media ${mq.max.laptop} {
@@ -77,11 +76,11 @@ export const HomePage: React.FC<HomePageProps> = ({ pickupArticles }) => {
           <SearchWrapper>
             <SearchInput placeholder={locale.search} />
           </SearchWrapper>
-          <motion.div>
+          <div>
             {pickupArticles.map((article) => (
               <BlogCard key={article.frontMatter.title} article={article} />
             ))}
-          </motion.div>
+          </div>
         </BlogSection>
         <HeadingSection>
           <AboutCard />

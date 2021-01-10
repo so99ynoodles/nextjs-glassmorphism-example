@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { useOverlayTriggerState } from '@react-stately/overlays';
 import { NavItem } from '../components/NavItem';
 import { ConfigIcon } from '../assets/icons/Config';
@@ -20,7 +19,7 @@ import { ConfigModal } from '../components/ConfigModal';
 import { OverlayContainer } from '@react-aria/overlays';
 import { useRouter } from 'next/router';
 
-const Root = styled(motion.div)`
+const Root = styled.div`
   height: 100%;
   width: 100%;
   padding: 2.5rem;
@@ -34,7 +33,7 @@ const Root = styled(motion.div)`
   }
 `;
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   height: 100%;
   background: rgba(var(--bg-color), 0.4);
   border-radius: 2rem;
@@ -61,7 +60,7 @@ const Container = styled(motion.div)`
   }
 `;
 
-const Main = styled(motion.main)`
+const Main = styled.main`
   background: rgba(var(--bg-color), 0.4);
   border-radius: 2rem;
   padding: 2rem;
@@ -76,7 +75,7 @@ const Main = styled(motion.main)`
   }
 `;
 
-const Navigation = styled(motion.nav)`
+const Navigation = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,7 +100,7 @@ const Navigation = styled(motion.nav)`
   }
 `;
 
-const Search = styled(motion.div)`
+const Search = styled.div`
   flex-grow: 1;
   display: none;
 
@@ -111,7 +110,7 @@ const Search = styled(motion.div)`
   }
 `;
 
-const SmallNavigation = styled(motion.nav)`
+const SmallNavigation = styled.nav`
   display: none;
   padding-bottom: 0.5rem;
 

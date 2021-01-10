@@ -1,7 +1,6 @@
-import { MotionProps, motion } from 'framer-motion';
 import { cx } from '../../../lib/classnames';
 
-export const DocumentIcon: React.FC<TwoColorIconProps & MotionProps> = ({
+export const DocumentIcon: React.FC<TwoColorIconProps> = ({
   fill,
   mainFill,
   subFill,
@@ -10,16 +9,12 @@ export const DocumentIcon: React.FC<TwoColorIconProps & MotionProps> = ({
   className,
   ...props
 }) => (
-  <motion.svg
+  <svg
     className={className}
     width={size}
     height={size}
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
-    whileHover={{
-      scale: 1.2,
-    }}
-    whileTap={{ scale: 0.9 }}
     {...props}
   >
     <path
@@ -36,5 +31,5 @@ export const DocumentIcon: React.FC<TwoColorIconProps & MotionProps> = ({
       d="M28 4L40 16H28V4Z"
       fill={mainFill || fill}
     />
-  </motion.svg>
+  </svg>
 );

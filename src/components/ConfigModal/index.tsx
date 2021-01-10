@@ -3,7 +3,6 @@ import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
 import styled from '@emotion/styled';
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useLocale } from '../../utils/useLocale';
 import { ModeRadio } from '../ModeRadio';
 import { ActionButton } from '../ActionButton';
@@ -31,7 +30,7 @@ const Backdrop = styled.div`
   justify-content: center;
 `;
 
-const ModalCard = styled<any>(motion.div)`
+const ModalCard = styled.div`
   background: rgba(var(--bg-color), 0.6);
   border-radius: 2rem;
   box-shadow: var(--box-shadow-required);
@@ -61,28 +60,28 @@ const SectionHeading = styled.h5`
 //   display: flex;
 // `;
 
-const Button = styled.button<{ isDisabled?: boolean }>`
-  border: none;
-  border-radius: 0.5rem;
-  background: ${(props) =>
-    props.isDisabled
-      ? 'rgba(var(--bg-color), 0.9)'
-      : 'rgba(var(--bg-color), 0.3)'};
-  border: 1px solid var(--border-color);
-  box-shadow: var(--box-shadow-md), var(--box-shadow-lg);
-  padding: 1rem;
-  font-size: 2rem;
-  width: 3rem;
-  height: 3rem;
-  max-width: 3rem;
-  max-height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
-  margin-right: 1rem;
-  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
-`;
+// const Button = styled.button<{ isDisabled?: boolean }>`
+//   border: none;
+//   border-radius: 0.5rem;
+//   background: ${(props) =>
+//     props.isDisabled
+//       ? 'rgba(var(--bg-color), 0.9)'
+//       : 'rgba(var(--bg-color), 0.3)'};
+//   border: 1px solid var(--border-color);
+//   box-shadow: var(--box-shadow-md), var(--box-shadow-lg);
+//   padding: 1rem;
+//   font-size: 2rem;
+//   width: 3rem;
+//   height: 3rem;
+//   max-width: 3rem;
+//   max-height: 3rem;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 1rem;
+//   margin-right: 1rem;
+//   cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
+// `;
 
 // const LangButton = ({ children, isDisabled, onPress }) => {
 //   const ref = React.useRef();

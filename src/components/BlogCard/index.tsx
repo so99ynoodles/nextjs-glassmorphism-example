@@ -2,18 +2,17 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import { useHover, usePress } from '@react-aria/interactions';
 import { mergeProps } from '@react-aria/utils';
-import { motion, MotionProps } from 'framer-motion';
 import { CheveronRightIcon } from '../../assets/icons/CheveronRight';
 import { mq } from '../../../lib/media-query';
 import { getDateFormatted } from '../../utils/article/entity';
 import { Tag } from '../Tag';
 import { useRouter } from 'next/router';
 
-interface BlogCardProps extends MotionProps {
+interface BlogCardProps {
   article: Article;
 }
 
-const Card = styled<any>(motion.div)`
+const Card = styled.div`
   position: relative;
   border-radius: 2rem;
   background: rgba(var(--bg-color), 0.6);
@@ -98,28 +97,16 @@ const Cheveron = styled.div`
   min-height: 2rem;
 `;
 
-export const BlogCard: React.FC<BlogCardProps> = ({
-  article,
-  ...motionProps
-}) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
   const { push, locale } = useRouter();
-  const { pressProps, isPressed } = usePress({
+  const { pressProps } = usePress({
     onPress: () => push(`/blog/posts/${article.slug}`, undefined, { locale }),
   });
-  const { hoverProps, isHovered } = useHover({});
+  const { hoverProps } = useHover({});
   return (
     <Card
       key={article.frontMatter.title}
       {...mergeProps(pressProps, hoverProps)}
-      animate={isPressed ? 'isPressed' : isHovered ? 'isHovered' : 'default'}
-      variants={{
-        default: { scale: 1 },
-        isHovered: { scale: 1.05 },
-        isPressed: { scale: 0.95 },
-        hide: { opacity: 0 },
-        show: { opacity: 1 },
-      }}
-      {...motionProps}
     >
       <ImageContainer>
         {article.frontMatter.image ? (

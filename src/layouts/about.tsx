@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
 import { mq } from '../../lib/media-query';
 import { HtmlHead } from '../components/HtmlHead';
 import { useLocale } from '../utils/useLocale';
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;

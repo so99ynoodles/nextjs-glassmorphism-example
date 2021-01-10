@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 export const CheveronMenuIcon: React.FC<IconProps & { isOpen?: boolean }> = ({
   size = '1rem',
   fill,

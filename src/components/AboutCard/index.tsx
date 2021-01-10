@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+
 import Image from 'next/image';
 import React from 'react';
 import { mq } from '../../../lib/media-query';
 import { useLocale } from '../../utils/useLocale';
 import { SocialIcons } from '../SocialIcons';
 
-const ImageContainer = styled(motion.div)`
+const ImageContainer = styled.div`
   width: 6rem;
   min-width: 6rem;
   height: 6rem;
@@ -19,7 +19,7 @@ const ImageContainer = styled(motion.div)`
   margin-bottom: 1rem;
 `;
 
-const Card = styled(motion.div)`
+const Card = styled.div`
   position: fixed;
   border-radius: 2rem;
   background: rgba(var(--bg-color), 0.4);

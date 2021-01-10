@@ -1,7 +1,6 @@
-import { motion, MotionProps } from 'framer-motion';
 import { cx } from '../../../lib/classnames';
 
-export const WorkIcon: React.FC<TwoColorIconProps & MotionProps> = ({
+export const WorkIcon: React.FC<TwoColorIconProps> = ({
   fill,
   mainFill,
   subFill,
@@ -10,17 +9,12 @@ export const WorkIcon: React.FC<TwoColorIconProps & MotionProps> = ({
   className,
   ...props
 }) => (
-  <motion.svg
+  <svg
     className={className}
     width={size}
     height={size}
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
-    whileHover={{
-      scale: 1.2,
-    }}
-    whileTap={{ scale: 0.9 }}
-    {...props}
   >
     <path
       className={cx('path-sub', {
@@ -36,5 +30,5 @@ export const WorkIcon: React.FC<TwoColorIconProps & MotionProps> = ({
       d="M28 25.84V24C28 23.4696 27.7893 22.9609 27.4142 22.5858C27.0391 22.2107 26.5304 22 26 22H22C21.4696 22 20.9609 22.2107 20.5858 22.5858C20.2107 22.9609 20 23.4696 20 24V25.84C14.4628 25.3825 9.04802 23.9612 4 21.64V16C4 13.8 5.8 12 8 12H14V10C14 8.4087 14.6321 6.88258 15.7574 5.75736C16.8826 4.63214 18.4087 4 20 4H28C29.5913 4 31.1174 4.63214 32.2426 5.75736C33.3679 6.88258 34 8.4087 34 10V12H40C41.0609 12 42.0783 12.4214 42.8284 13.1716C43.5786 13.9217 44 14.9391 44 16V21.64C38.952 23.9612 33.5372 25.3825 28 25.84ZM30 12V10C30 9.46957 29.7893 8.96086 29.4142 8.58579C29.0391 8.21071 28.5304 8 28 8H20C19.4696 8 18.9609 8.21071 18.5858 8.58579C18.2107 8.96086 18 9.46957 18 10V12H30Z"
       fill={mainFill || fill}
     />
-  </motion.svg>
+  </svg>
 );

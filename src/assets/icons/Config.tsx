@@ -1,4 +1,3 @@
-import { MotionProps } from 'framer-motion';
 import { cx } from '../../../lib/classnames';
 
 export const ConfigIcon: React.FC<TwoColorIconProps> = ({
