@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import { BlogCard } from '../../components/BlogCard';
+import { HtmlHead } from '../../components/HtmlHead';
 import { getArticles } from '../../utils/article/fs.server';
 import { sortArticlesByDateDesc } from '../../utils/article/sorter';
 
@@ -11,11 +12,10 @@ export const IndexPage: React.FC<IndexPageProps> = ({ articles }) => {
   console.log(articles);
   return (
     <>
-      <Head>
-        <title>Blog</title>
-      </Head>
-      blog
-      {articles.map((a) => JSON.stringify(a))}
+      <HtmlHead title="Blog" />
+      {articles.map((article) => (
+        <BlogCard key={article.frontMatter.title} article={article} />
+      ))}
     </>
   );
 };

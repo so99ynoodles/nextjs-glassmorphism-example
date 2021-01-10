@@ -1,11 +1,11 @@
 export default {
-  title: 'tk.dev',
+  title: 'so99ynoodles.dev',
   description: 'An another developer blog',
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://tk.dev/',
-    site_name: 'tk.dev',
+    url: 'https://so99ynoodles.dev/',
+    site_name: 'so99ynoodles.dev',
     images: [
       {
         url: '',

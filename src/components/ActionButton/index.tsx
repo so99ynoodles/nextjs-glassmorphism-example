@@ -9,7 +9,6 @@ const Button = styled.button<{ small: boolean }>`
   cursor: pointer;
   width: ${(props) => (props.small ? '2rem' : '3rem')};
   height: ${(props) => (props.small ? '2rem' : '3rem')};
-  outline: none;
 `;
 
 interface ActionButtonProps {

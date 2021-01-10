@@ -14,6 +14,7 @@ import { SearchInput } from '../components/SearchInput';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import React, { useState } from 'react';
 import { CheveronMenuIcon } from '../assets/icons/CheveronMenu';
+import { useLocale } from '../utils/useLocale';
 
 const Root = styled(motion.div)`
   height: 100%;
@@ -123,34 +124,35 @@ const SmallNavigation = styled(motion.nav)`
 
 export const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const locale = useLocale();
   return (
     <Root>
       <Container>
         <Navigation role="navigation" aria-label="navigation">
           <Link href="/" passHref>
             <a>
-              <VisuallyHidden elementType="span">Logo</VisuallyHidden>
+              <VisuallyHidden elementType="span">{locale.logo}</VisuallyHidden>
               <LogoIcon className="nav-icon" fill="var(--primary-color)" />
             </a>
           </Link>
           <Responsive desktop>
             <ul>
-              <NavItem name="Home" exact href="/">
+              <NavItem name={locale.home} exact href="/">
                 <HomeIcon className="nav-icon" />
               </NavItem>
-              <NavItem name="About Me" href="/about">
+              <NavItem name={locale.about} href="/about">
                 <UserIcon className="nav-icon" />
               </NavItem>
-              {/* <NavItem name="My Work" href="/work">
+              {/* <NavItem name={locale.work} href="/work">
                 <WorkIcon className="nav-icon" />
               </NavItem> */}
-              <NavItem name="Blog" href="/blog">
+              <NavItem name={locale.blog} href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
             </ul>
           </Responsive>
           <Search>
-            <SearchInput />
+            <SearchInput placeholder={locale.search} />
           </Search>
           <Responsive desktop>
             <ActionButton name="Configuration">
@@ -161,7 +163,7 @@ export const Layout = ({ children }) => {
             <ActionButton
               small
               onPress={() => setIsOpen(!isOpen)}
-              name="Open Menu"
+              name={locale.openMenu}
             >
               <CheveronMenuIcon isOpen={isOpen} className="nav-icon" />
             </ActionButton>
@@ -170,19 +172,19 @@ export const Layout = ({ children }) => {
         {isOpen && (
           <SmallNavigation>
             <ul style={{ display: 'flex' }}>
-              <NavItem name="Home" exact href="/">
+              <NavItem name={locale.home} exact href="/">
                 <HomeIcon className="nav-icon" />
               </NavItem>
-              <NavItem name="About Me" href="/about">
+              <NavItem name={locale.about} href="/about">
                 <UserIcon className="nav-icon" />
               </NavItem>
-              {/* <NavItem name="My Work" href="/work">
+              {/* <NavItem name={locale.work}href="/work">
                 <WorkIcon className="nav-icon" />
               </NavItem> */}
-              <NavItem name="Blog" href="/blog">
+              <NavItem name={locale.blog} href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
-              <ActionButton name="Configuration">
+              <ActionButton name={locale.config}>
                 <ConfigIcon className="nav-icon" />
               </ActionButton>
             </ul>

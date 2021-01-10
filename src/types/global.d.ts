@@ -31,3 +31,9 @@ interface Article {
   excerpt: string;
   content?: ArticleContent;
 }
+
+enum AvailableLocale {
+  en,
+  ja,
+  kr,
+}

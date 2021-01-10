@@ -15,7 +15,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="ja">
-        <Head></Head>
+        <Head />
         <body>
           <Main />
           <script src="disableDevTools.js" />
