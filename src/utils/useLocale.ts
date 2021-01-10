@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import en from '../locales/en';
 import ja from '../locales/ja';
-import kr from '../locales/kr';
+import ko from '../locales/ko';
 
 export function useLocale() {
   const { locale } = useRouter();
@@ -11,7 +11,7 @@ export function useLocale() {
       return ja;
     case 'en':
       return en;
-    case 'kr':
-      return kr;
+    case 'ko':
+      return ko;
   }
 }

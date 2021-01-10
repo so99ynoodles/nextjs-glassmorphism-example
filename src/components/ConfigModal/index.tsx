@@ -157,8 +157,8 @@ export const ConfigModal: React.FC<ModalProps> = ({
                 🇺🇸
               </LangButton>
               <LangButton
-                onPress={() => onLocalChange('kr')}
-                isDisabled={lang === 'kr'}
+                onPress={() => onLocalChange('ko')}
+                isDisabled={lang === 'ko'}
               >
                 🇰🇷
               </LangButton>

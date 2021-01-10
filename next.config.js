@@ -21,7 +21,7 @@ module.exports = {
     ];
   },
   i18n: {
-    locales: ['en', 'ja', 'kr'],
+    locales: ['en', 'ja', 'ko'],
     defaultLocale: 'ja',
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {

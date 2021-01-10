@@ -35,5 +35,5 @@ interface Article {
 enum AvailableLocale {
   en,
   ja,
-  kr,
+  ko,
 }
