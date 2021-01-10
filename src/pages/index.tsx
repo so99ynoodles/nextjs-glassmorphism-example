@@ -3,11 +3,12 @@ import { SearchInput } from '../components/SearchInput';
 import { mq } from '../../lib/media-query';
 import { motion } from 'framer-motion';
 import { GetStaticProps } from 'next';
-import { getArticle } from '../utils/article/fs.server';
+import { getArticle, getArticles } from '../utils/article/fs.server';
 import { BlogCard } from '../components/BlogCard';
 import { HtmlHead } from '../components/HtmlHead';
 import { useLocale } from '../utils/useLocale';
 import { AboutCard } from '../components/AboutCard';
+import { sortArticlesByDateDesc } from '../utils/article/sorter';
 
 const Container = styled.div`
   display: flex;
@@ -92,12 +93,9 @@ export const HomePage: React.FC<HomePageProps> = ({ pickupArticles }) => {
 
 export default HomePage;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const pickupArticles = await Promise.all(
-    ['example', 'example2', 'example3', 'example4'].map(
-      async (slug) => await getArticle(slug, '/posts')
-    )
-  );
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const articles = await getArticles(`/posts/${locale}`);
+  const pickupArticles = sortArticlesByDateDesc(articles);
 
   return {
     props: {

@@ -6,6 +6,7 @@ tags: ['jest', 'auth0']
 emoji: '👨‍💻'
 status: 'published'
 image: ''
+locale: 'ja'
 ---
 
 as;dlkjas;dlj

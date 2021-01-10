@@ -55,25 +55,33 @@ export const BlogPost: React.FC<BlogPostProps> = ({
 
 export default BlogPost;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const dirNamesThatHaveMdx = getDirNamesThatHaveMdx('/posts');
-  const paths = dirNamesThatHaveMdx.map((dir) => ({
-    params: { slug: dir.replace(/\.mdx?/, '') },
-  }));
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const path = locales
+    .map((locale) => {
+      const dirNamesThatHaveMdx = getDirNamesThatHaveMdx(`/posts/${locale}`);
+      const paths = dirNamesThatHaveMdx.map((dir) => ({
+        params: { slug: dir.replace(/\.mdx?/, ''), locale },
+      }));
+      return paths;
+    })
+    .flat();
 
   return {
-    fallback: false,
-    paths,
+    fallback: true,
+    paths: path,
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params.slug as string;
-  const { content, ...article } = await getArticle(slug, '/posts');
+  const { content, ...article } = await getArticle(slug, `/posts/${locale}`);
 
-  const contentHtml = await renderToString(content, `/posts/${params.slug}`);
+  const contentHtml = await renderToString(
+    content,
+    `/posts/${locale}/${params.slug}`
+  );
 
-  const articles = await getArticles('/posts');
+  const articles = await getArticles(`/posts/${locale}`);
   const _relatedArticles = getRelatedArticles(article, articles);
   const relatedArticles = _relatedArticles.map((r) => stripContent(r));
 

@@ -15,7 +15,7 @@ export const getDirNamesThatHaveMdx = (urlContents: string) => {
   const dirNamesThatHaveMdx = dirNames.filter(
     (dir) =>
       fs.existsSync(`public${urlContents}/${dir}/index.md`) ||
-      fs.existsSync(`public${urlContents}/${dir}/index.mdx`),
+      fs.existsSync(`public${urlContents}/${dir}/index.mdx`)
   );
   const paths = dirNamesThatHaveMdx.map((dir) => dir.replace(/\.mdx?/, ''));
 
@@ -62,7 +62,7 @@ type GetArticlesFromDirOption = {
 export const getArticlesFromDirs = async (
   urlContents: string,
   mdxDirs: string[],
-  options?: GetArticlesFromDirOption,
+  options?: GetArticlesFromDirOption
 ) => {
   const articles = await Promise.all(
     mdxDirs.map(async (slug) => {
@@ -71,7 +71,7 @@ export const getArticlesFromDirs = async (
 
       if (!isPublished(article) && !options?.includesDraft) return null;
       return article;
-    }),
+    })
   );
 
   return articles.filter((a) => a);
@@ -82,7 +82,10 @@ export const getArticlesFromDirs = async (
  * @param urlContents コンテンツのURL
  * @param options
  */
-export const getArticles = async (urlContents: string, options?: GetArticlesFromDirOption) => {
+export const getArticles = async (
+  urlContents: string,
+  options?: GetArticlesFromDirOption
+) => {
   const mdxDirs = getDirNamesThatHaveMdx(urlContents);
   return getArticlesFromDirs(urlContents, mdxDirs, options);
 };

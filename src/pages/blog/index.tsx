@@ -21,8 +21,8 @@ export const IndexPage: React.FC<IndexPageProps> = ({ articles }) => {
 
 export default IndexPage;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const articles = await getArticles('/posts');
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const articles = await getArticles(`/posts/${locale}`);
   const articlesSorted = sortArticlesByDateDesc(articles);
 
   return { props: { articles: articlesSorted } as IndexPageProps };
