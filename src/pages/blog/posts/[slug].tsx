@@ -68,12 +68,13 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
     .flat();
 
   return {
-    fallback: true,
+    fallback: false,
     paths: path,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  console.log(params, locale);
   const slug = params.slug as string;
   const { content, ...article } = await getArticle(slug, `/posts/${locale}`);
   const contentHtml = await renderToString(
