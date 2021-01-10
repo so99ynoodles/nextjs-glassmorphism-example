@@ -16,4 +16,6 @@ export default {
   twitterPage: 'Twitterページ',
   githubPage: 'Githubページ',
   search: '検索...',
+  themeSetting: 'テーマ設定',
+  langSetting: '言語設定',
 };

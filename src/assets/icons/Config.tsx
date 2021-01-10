@@ -1,26 +1,20 @@
-import { MotionProps, motion } from 'framer-motion';
+import { MotionProps } from 'framer-motion';
 import { cx } from '../../../lib/classnames';
 
-export const ConfigIcon: React.FC<TwoColorIconProps & MotionProps> = ({
+export const ConfigIcon: React.FC<TwoColorIconProps> = ({
   fill,
   mainFill,
   subFill,
   size = '1rem',
   isActive,
   className,
-  ...props
 }) => (
-  <motion.svg
+  <svg
     className={className}
     width={size}
     height={size}
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
-    whileHover={{
-      scale: 1.2,
-      rotate: 90,
-    }}
-    {...props}
   >
     <path
       className={cx('path-main', {
@@ -36,5 +30,5 @@ export const ConfigIcon: React.FC<TwoColorIconProps & MotionProps> = ({
       d="M24 28C26.2091 28 28 26.2091 28 24C28 21.7909 26.2091 20 24 20C21.7909 20 20 21.7909 20 24C20 26.2091 21.7909 28 24 28Z"
       fill={subFill || fill}
     />
-  </motion.svg>
+  </svg>
 );

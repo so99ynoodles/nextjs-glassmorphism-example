@@ -16,4 +16,6 @@ export default {
   twitterPage: '트위터',
   githubPage: '깃허브',
   search: '검색...',
+  themeSetting: '테마 설정',
+  langSetting: '언어 설정',
 };

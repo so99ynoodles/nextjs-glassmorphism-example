@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useOverlayTriggerState } from '@react-stately/overlays';
 import { NavItem } from '../components/NavItem';
 import { ConfigIcon } from '../assets/icons/Config';
 import { DocumentIcon } from '../assets/icons/Document';
@@ -15,6 +16,8 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import React, { useState } from 'react';
 import { CheveronMenuIcon } from '../assets/icons/CheveronMenu';
 import { useLocale } from '../utils/useLocale';
+import { ConfigModal } from '../components/ConfigModal';
+import { OverlayContainer } from '@react-aria/overlays';
 
 const Root = styled(motion.div)`
   height: 100%;
@@ -124,6 +127,7 @@ const SmallNavigation = styled(motion.nav)`
 
 export const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const state = useOverlayTriggerState({});
   const locale = useLocale();
   return (
     <Root>
@@ -155,7 +159,7 @@ export const Layout = ({ children }) => {
             <SearchInput placeholder={locale.search} />
           </Search>
           <Responsive desktop>
-            <ActionButton name="Configuration">
+            <ActionButton onPress={state.open} name="Configuration">
               <ConfigIcon className="nav-icon" />
             </ActionButton>
           </Responsive>
@@ -184,7 +188,7 @@ export const Layout = ({ children }) => {
               <NavItem name={locale.blog} href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
-              <ActionButton name={locale.config}>
+              <ActionButton onPress={state.open} name={locale.config}>
                 <ConfigIcon className="nav-icon" />
               </ActionButton>
             </ul>
@@ -192,6 +196,15 @@ export const Layout = ({ children }) => {
         )}
         <Main role="main">{children}</Main>
       </Container>
+      {state.isOpen && (
+        <OverlayContainer>
+          <ConfigModal
+            isOpen={state.isOpen}
+            title={locale.config}
+            onClose={state.close}
+          />
+        </OverlayContainer>
+      )}
     </Root>
   );
 };

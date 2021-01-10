@@ -9,7 +9,6 @@ type IndexPageProps = {
 };
 
 export const IndexPage: React.FC<IndexPageProps> = ({ articles }) => {
-  console.log(articles);
   return (
     <>
       <HtmlHead title="Blog" />

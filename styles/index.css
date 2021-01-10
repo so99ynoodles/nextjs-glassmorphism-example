@@ -30,33 +30,33 @@
   --border-color: #ffffff;
   --box-shadow-md: 0px 0.5rem 1rem rgba(84, 209, 219, 0.3);
   --box-shadow-lg: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
+  --box-shadow-required: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg-color: linear-gradient(
-        to right bottom,
-        rgba(53, 53, 53, 0.9) 0%,
-        #71623b 18.23%,
-        #3f6f62 67.71%,
-        #344556 100%
-      )
-      fixed;
-    --bg-color: 16, 42, 67;
-    --input-bg-color: 255, 255, 255;
-    --tag-bg-color: #102a43;
-    --primary-color: #dceefb;
-    --font-color-main: #d9e2ec;
-    --font-color-sub: #9fb3c8;
-    --font-color-help: #829ab1;
-    --icon-color-active-main: #b6e0fe;
-    --icon-color-active-sub: #fff;
-    --icon-color-inactive-main: #9fb3c8;
-    --icon-color-inactive-sub: #bcccdc;
-    --border-color: transparent;
-    --box-shadow-md: none;
-    --box-shadow-lg: none;
-  }
+:root[theme='dark'] {
+  --body-bg-color: linear-gradient(
+      to right bottom,
+      rgba(53, 53, 53, 0.9) 0%,
+      #71623b 18.23%,
+      #3f6f62 67.71%,
+      #344556 100%
+    )
+    fixed;
+  --bg-color: 16, 42, 67;
+  --input-bg-color: 255, 255, 255;
+  --tag-bg-color: #102a43;
+  --primary-color: #dceefb;
+  --font-color-main: #d9e2ec;
+  --font-color-sub: #9fb3c8;
+  --font-color-help: #829ab1;
+  --icon-color-active-main: #b6e0fe;
+  --icon-color-active-sub: #fff;
+  --icon-color-inactive-main: #9fb3c8;
+  --icon-color-inactive-sub: #bcccdc;
+  --border-color: #344556;
+  --box-shadow-md: none;
+  --box-shadow-lg: none;
+  --box-shadow-required: 0px 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 html {

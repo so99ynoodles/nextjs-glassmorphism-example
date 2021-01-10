@@ -16,4 +16,6 @@ export default {
   twitterPage: 'My Twitter Page',
   githubPage: 'My Github Page',
   search: 'Search...',
+  themeSetting: 'Theme Setting',
+  langSetting: 'Langauge Setting',
 };

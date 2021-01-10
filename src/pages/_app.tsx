@@ -10,8 +10,10 @@ import SEO from '../../next-seo.config';
 import '../../styles/index.css';
 import '../../styles/prism.scss';
 import '../../styles/remark.scss';
+import { useColorMode } from '../utils/colorMode';
 
 function MyApp({ Component, pageProps }) {
+  useColorMode();
   // const router = useRouter();
   // React.useEffect(() => {
   //   if (!gtag.GA_TRACKING_ID) return;
