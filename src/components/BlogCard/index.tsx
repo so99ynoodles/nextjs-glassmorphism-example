@@ -102,9 +102,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   article,
   ...motionProps
 }) => {
-  const { push } = useRouter();
+  const { push, locale } = useRouter();
   const { pressProps, isPressed } = usePress({
-    onPress: () => push(`/blog/posts/${article.slug}`),
+    onPress: () => push(`/blog/posts/${article.slug}`, undefined, { locale }),
   });
   const { hoverProps, isHovered } = useHover({});
   return (
@@ -140,7 +140,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({
           <strong>{article.frontMatter.title}</strong>
         </div>
         <p>
-          <DateText>{getDateFormatted(article)}</DateText>
+          <DateText>
+            {getDateFormatted(article, 'MMM do (yyyy)', locale)}
+          </DateText>
           {article.frontMatter.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}

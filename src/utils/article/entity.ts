@@ -5,6 +5,7 @@ import { ValidationError } from '../error/Validation';
 import { PropertyRequiredError } from '../error/PropertyRequired';
 import { isValidISODate } from '../date/is-valid';
 import { stripMarkdown } from './markdown';
+import { getDateLocale } from '../useLocale';
 
 /** 記事の公開状態 */
 export type ArticleStatus = 'published' | 'draft';
@@ -37,7 +38,9 @@ export class Article {
  * 不正な frontMatter であった場合、エラーを throw する
  * @param frontMatter ArticleFrontMatter 形式のオブジェクト
  */
-export const denyInvalidFrontMatter = (frontMatter: Record<string, unknown>) => {
+export const denyInvalidFrontMatter = (
+  frontMatter: Record<string, unknown>
+) => {
   if (!frontMatter) throw new ValidationError('frontMatter が見つかりません');
   if (!('title' in frontMatter)) throw new PropertyRequiredError('title');
   if (!('date' in frontMatter)) throw new PropertyRequiredError('date');
@@ -108,8 +111,14 @@ export const getArticleFromMdxSource = async (source: string, slug: string) => {
  * 投稿日時を整形して返す
  * @param dateFormat 日付フォーマット
  */
-export const getDateFormatted = (article: Article, dateFormat = 'yyyy/MM/dd') => {
-  return format(new Date(article.frontMatter.date), dateFormat);
+export const getDateFormatted = (
+  article: Article,
+  dateFormat = 'yyyy/MM/dd',
+  locale
+) => {
+  return format(new Date(article.frontMatter.date), dateFormat, {
+    locale: getDateLocale(locale),
+  });
 };
 
 /** 記事が公開済みかどうか */

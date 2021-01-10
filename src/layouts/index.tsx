@@ -18,6 +18,7 @@ import { CheveronMenuIcon } from '../assets/icons/CheveronMenu';
 import { useLocale } from '../utils/useLocale';
 import { ConfigModal } from '../components/ConfigModal';
 import { OverlayContainer } from '@react-aria/overlays';
+import { useRouter } from 'next/router';
 
 const Root = styled(motion.div)`
   height: 100%;
@@ -126,6 +127,7 @@ const SmallNavigation = styled(motion.nav)`
 `;
 
 export const Layout = ({ children }) => {
+  const { locale: lang } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const state = useOverlayTriggerState({});
   const locale = useLocale();
@@ -133,7 +135,7 @@ export const Layout = ({ children }) => {
     <Root>
       <Container>
         <Navigation role="navigation" aria-label="navigation">
-          <Link href="/" passHref>
+          <Link href="/" passHref locale={lang}>
             <a>
               <VisuallyHidden elementType="span">{locale.logo}</VisuallyHidden>
               <LogoIcon className="nav-icon" fill="var(--primary-color)" />

@@ -43,14 +43,14 @@ export const NavItem: React.FC<NavItemProps> = ({
   exact,
   name,
 }) => {
-  const { pathname } = useRouter();
+  const { pathname, locale } = useRouter();
   const isActive = exact ? pathname === href : pathname.startsWith(href);
   const { isHovered, hoverProps } = useHover({
     isDisabled,
   });
   return (
     <ListItem {...hoverProps} isActive={isActive}>
-      <Link href={href} passHref>
+      <Link href={href} passHref locale={locale}>
         <a>
           {React.cloneElement(children as any, {
             isActive: isActive || isHovered,
