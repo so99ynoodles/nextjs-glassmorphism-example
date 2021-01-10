@@ -106,6 +106,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
   return (
     <Card
       key={article.frontMatter.title}
+      tabIndex={0}
       {...mergeProps(pressProps, hoverProps)}
     >
       <ImageContainer>
