@@ -3,7 +3,7 @@ import { SearchInput } from '../components/SearchInput';
 import { mq } from '../../lib/media-query';
 import { motion } from 'framer-motion';
 import { GetStaticProps } from 'next';
-import { getArticle, getArticles } from '../utils/article/fs.server';
+import { getArticles } from '../utils/article/fs.server';
 import { BlogCard } from '../components/BlogCard';
 import { HtmlHead } from '../components/HtmlHead';
 import { useLocale } from '../utils/useLocale';
@@ -93,7 +93,7 @@ export const HomePage: React.FC<HomePageProps> = ({ pickupArticles }) => {
 
 export default HomePage;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'ja' }) => {
   const articles = await getArticles(`/posts/${locale}`);
   const pickupArticles = sortArticlesByDateDesc(articles);
 

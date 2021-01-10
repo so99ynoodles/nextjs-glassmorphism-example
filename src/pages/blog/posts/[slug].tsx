@@ -1,6 +1,5 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { FaHome, FaPencilAlt } from 'react-icons/fa';
 import { Article, stripContent } from '../../../utils/article/entity';
 import {
   getArticle,
@@ -13,7 +12,6 @@ import {
   getPrevAndNextArticle,
   getRelatedArticles,
 } from '../../../utils/article/related';
-import { ShareButtonsHorizontal } from '../../../components/ShareButtons';
 import { HtmlHead } from '../../../components/HtmlHead';
 import { ArticleDetail } from '../../../components/ArticleDetail';
 
@@ -56,12 +54,12 @@ export const BlogPost: React.FC<BlogPostProps> = ({
 export default BlogPost;
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const path = locales
+  const path = (locales || ['ja'])
     .map((locale) => {
       const dirNamesThatHaveMdx = getDirNamesThatHaveMdx(`/posts/${locale}`);
       const paths = dirNamesThatHaveMdx.map((dir) => ({
         params: { slug: dir.replace(/\.mdx?/, '') },
-        locale,
+        // locale,
       }));
       return paths;
     })
@@ -73,7 +71,10 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  locale = 'ja',
+}) => {
   const slug = params.slug as string;
   const { content, ...article } = await getArticle(slug, `/posts/${locale}`);
   const contentHtml = await renderToString(

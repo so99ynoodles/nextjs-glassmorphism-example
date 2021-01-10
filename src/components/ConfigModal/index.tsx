@@ -8,8 +8,8 @@ import { useLocale } from '../../utils/useLocale';
 import { ModeRadio } from '../ModeRadio';
 import { ActionButton } from '../ActionButton';
 import { FaTimes } from 'react-icons/fa';
-import { useButton } from '@react-aria/button';
-import { useRouter } from 'next/router';
+// import { useButton } from '@react-aria/button';
+// import { useRouter } from 'next/router';
 
 interface ModalProps {
   title?: string;
@@ -36,7 +36,7 @@ const ModalCard = styled<any>(motion.div)`
   border-radius: 2rem;
   box-shadow: var(--box-shadow-required);
   min-width: 19rem;
-  min-height: 20rem;
+  min-height: 16rem;
   border: 2px solid var(--border-color);
   padding: 1.5rem;
   outline: none;
@@ -57,9 +57,9 @@ const SectionHeading = styled.h5`
   color: var(--font-color-sub);
 `;
 
-const ButtonGroup = styled.div`
-  display: flex;
-`;
+// const ButtonGroup = styled.div`
+//   display: flex;
+// `;
 
 const Button = styled.button<{ isDisabled?: boolean }>`
   border: none;
@@ -84,33 +84,32 @@ const Button = styled.button<{ isDisabled?: boolean }>`
   cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
 `;
 
-const LangButton = ({ children, isDisabled, onPress }) => {
-  const ref = React.useRef();
-  const { buttonProps } = useButton(
-    {
-      isDisabled,
-      onPress,
-    },
-    ref
-  );
+// const LangButton = ({ children, isDisabled, onPress }) => {
+//   const ref = React.useRef();
+//   const { buttonProps } = useButton(
+//     {
+//       isDisabled,
+//       onPress,
+//     },
+//     ref
+//   );
 
-  return (
-    <Button {...buttonProps} isDisabled={isDisabled}>
-      {children}
-    </Button>
-  );
-};
+//   return (
+//     <Button {...buttonProps} isDisabled={isDisabled}>
+//       {children}
+//     </Button>
+//   );
+// };
 
 export const ConfigModal: React.FC<ModalProps> = ({
   title,
   isOpen,
   onClose,
 }) => {
-  const { locale: lang, push } = useRouter();
-
-  const onLocalChange = (locale: string) => {
-    push('/', '/', { locale });
-  };
+  // const { locale: lang, push } = useRouter();
+  // const onLocalChange = (locale: string) => {
+  //   push('/', '/', { locale });
+  // };
   const locale = useLocale();
   const ref = React.useRef();
   const { overlayProps } = useOverlay(
@@ -140,7 +139,7 @@ export const ConfigModal: React.FC<ModalProps> = ({
             <SectionHeading>{locale.themeSetting}</SectionHeading>
             <ModeRadio />
           </Section>
-          <Section>
+          {/* <Section>
             <SectionHeading>{locale.langSetting}</SectionHeading>
             <ButtonGroup>
               <LangButton
@@ -162,7 +161,7 @@ export const ConfigModal: React.FC<ModalProps> = ({
                 🇰🇷
               </LangButton>
             </ButtonGroup>
-          </Section>
+          </Section> */}
         </ModalCard>
       </FocusScope>
     </Backdrop>
