@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from '../layouts';
-import { SSRProvider } from '@react-aria/ssr';
+// import { SSRProvider } from '@react-aria/ssr';
 import { OverlayProvider } from '@react-aria/overlays';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
@@ -29,14 +29,14 @@ function MyApp({ Component, pageProps }) {
   // }, [router.events]);
 
   return (
-    <SSRProvider>
-      <OverlayProvider style={{ height: '100%', width: '100%' }}>
-        <DefaultSeo {...SEO} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </OverlayProvider>
-    </SSRProvider>
+    // <SSRProvider>
+    <OverlayProvider style={{ height: '100%', width: '100%' }}>
+      <DefaultSeo {...SEO} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </OverlayProvider>
+    // </SSRProvider>
   );
 }
 
