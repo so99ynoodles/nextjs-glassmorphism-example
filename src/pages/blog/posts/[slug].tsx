@@ -60,7 +60,8 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
     .map((locale) => {
       const dirNamesThatHaveMdx = getDirNamesThatHaveMdx(`/posts/${locale}`);
       const paths = dirNamesThatHaveMdx.map((dir) => ({
-        params: { slug: dir.replace(/\.mdx?/, ''), locale },
+        params: { slug: dir.replace(/\.mdx?/, '') },
+        locale,
       }));
       return paths;
     })
@@ -75,7 +76,6 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params.slug as string;
   const { content, ...article } = await getArticle(slug, `/posts/${locale}`);
-
   const contentHtml = await renderToString(
     content,
     `/posts/${locale}/${params.slug}`

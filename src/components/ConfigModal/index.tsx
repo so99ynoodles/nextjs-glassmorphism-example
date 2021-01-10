@@ -106,17 +106,10 @@ export const ConfigModal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const { locale: lang, push, query, pathname } = useRouter();
+  const { locale: lang, push } = useRouter();
 
   const onLocalChange = (locale: string) => {
-    push(
-      {
-        pathname,
-        query: { ...query },
-      },
-      undefined,
-      { locale }
-    );
+    push('/', '/', { locale });
   };
   const locale = useLocale();
   const ref = React.useRef();
