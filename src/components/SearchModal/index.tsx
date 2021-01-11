@@ -6,7 +6,6 @@ import React from 'react';
 import { SearchInput } from '../SearchInput';
 import { useLocale } from '../../utils/useLocale';
 import { ResultCard } from '../ResultCard';
-import { Card } from '../Card';
 import { useRouter } from 'next/router';
 
 interface ModalProps {
