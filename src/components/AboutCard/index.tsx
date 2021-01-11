@@ -46,10 +46,7 @@ const Card = styled.div`
     &__nickname {
       font-size: 1.4rem;
       color: var(--font-color-sub);
-
-      @media ${mq.max.tablet} {
-        display: block;
-      }
+      display: block;
     }
 
     &__description {
