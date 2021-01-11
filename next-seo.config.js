@@ -8,7 +8,7 @@ export default {
     site_name: 'so99ynoodles.dev',
     images: [
       {
-        url: '',
+        url: 'https://so99ynoodles-portfolio.vercel.app/so99ynoodles.png',
       },
     ],
   },

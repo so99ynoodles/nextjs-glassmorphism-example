@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import en from '../locales/en';
-import ja from '../locales/ja';
-import ko from '../locales/ko';
+import en from '../../locales/en';
+import ja from '../../locales/ja';
+import ko from '../../locales/ko';
 
 import { ja as dateJa, ko as dateKo, enUS as dateEn } from 'date-fns/locale';
 
