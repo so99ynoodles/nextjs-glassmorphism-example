@@ -100,7 +100,7 @@ $mq-sm: 30em;
 
   & blockquote {
     border-left: 4px solid rgba(26, 32, 44, 0.5);
-    color: rgba(26, 32, 44, 0.75);
+    color: var(--font-color-help);
     margin: 0 0 1.75em;
     padding: 0 0 0 calc(0.875em - 1px);
   }
@@ -126,11 +126,11 @@ $mq-sm: 30em;
 
   & a {
     text-decoration: underline;
-    color: #285e61;
+    color: var(--link-color);
     word-break: break-all;
 
     &:hover {
-      color: #4fd1c5;
+      color: var(--link-color-hover);
     }
   }
 
@@ -153,7 +153,7 @@ $mq-sm: 30em;
   & th {
     font-weight: bold;
     font-size: 0.75em;
-    background-color: #f7fafc;
+    background-color: var(--code-color);
   }
 
   & pre {
@@ -163,7 +163,8 @@ $mq-sm: 30em;
   & > p > code,
   & li > code {
     padding: 0.25em 0.5em;
-    background-color: #edf2f7;
+    background-color: var(--code-color);
+    color: #fff;
     word-break: break-all;
   }
 }

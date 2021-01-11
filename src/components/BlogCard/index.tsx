@@ -105,7 +105,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
   const { hoverProps } = useHover({});
   return (
     <Card
-      key={article.frontMatter.title}
+      key={article.slug}
       tabIndex={0}
       {...mergeProps(pressProps, hoverProps)}
     >
@@ -132,7 +132,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
             {getDateFormatted(article, 'MMM do (yyyy)', locale)}
           </DateText>
           {article.frontMatter.tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
+            <Tag key={tag} tag={tag} noMargin />
           ))}
         </p>
       </Content>

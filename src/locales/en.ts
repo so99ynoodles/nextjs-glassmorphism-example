@@ -18,4 +18,8 @@ export default {
   search: 'Search...',
   themeSetting: 'Theme Setting',
   langSetting: 'Langauge Setting',
+  relatedArticles: 'Related Articles',
+  prevArticle: 'Previous',
+  nextArticle: 'Next',
+  tags: 'Tags',
 };

@@ -7,7 +7,11 @@ import { sortArticlesByDateDesc } from './sorter';
  * @param articles 検索対象の記事
  * @param count ピックアップする数
  */
-export const getRelatedArticles = (src: Article, articles: Article[], count = 4) => {
+export const getRelatedArticles = (
+  src: Article,
+  articles: Article[],
+  count = 2
+) => {
   // 現状は、タグの一致度のみを見て返す
   return getRelatedArticlesByTags(src, articles, count);
 };
@@ -18,14 +22,19 @@ export const getRelatedArticles = (src: Article, articles: Article[], count = 4)
  * @param articles 検索対象の記事
  * @param count ピックアップする数
  */
-export const getRelatedArticlesByTags = (src: Article, articles: Article[], count: number) => {
+export const getRelatedArticlesByTags = (
+  src: Article,
+  articles: Article[],
+  count: number
+) => {
   return articles
     .filter((a) => a.slug !== src.slug) // 自分と同じ記事は外す
     .map((article) => {
       // タグの一致数を数える
       const matchedTagCount = article.frontMatter.tags.reduce(
-        (count, t) => (src.frontMatter.tags.some((tt) => tt === t) ? count + 1 : count),
-        0,
+        (count, t) =>
+          src.frontMatter.tags.some((tt) => tt === t) ? count + 1 : count,
+        0
       );
       return { article, matchedTagCount };
     })
@@ -42,10 +51,12 @@ export const getRelatedArticlesByTags = (src: Article, articles: Article[], coun
  */
 export const getPrevAndNextArticle = (
   src: Article,
-  articles: Article[],
+  articles: Article[]
 ): { prevArticle: Article | null; nextArticle: Article | null } => {
   const articlesOrderByDate = sortArticlesByDateDesc(articles);
-  const articleIndex = articlesOrderByDate.findIndex((a) => a.slug === src.slug);
+  const articleIndex = articlesOrderByDate.findIndex(
+    (a) => a.slug === src.slug
+  );
   if (articleIndex < 0) return { prevArticle: null, nextArticle: null };
 
   const prevArticle = articlesOrderByDate[articleIndex - 1] ?? null;

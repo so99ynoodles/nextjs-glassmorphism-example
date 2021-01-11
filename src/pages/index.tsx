@@ -70,7 +70,7 @@ export const HomePage: React.FC<HomePageProps> = ({ pickupArticles }) => {
   const locale = useLocale();
   return (
     <>
-      <HtmlHead title="Home" />
+      <HtmlHead title={locale.home} />
       <Container>
         <BlogSection>
           <SearchWrapper>

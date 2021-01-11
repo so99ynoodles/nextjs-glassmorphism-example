@@ -28,6 +28,8 @@ export function useColorMode() {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       if (mediaQuery.matches == true) {
         changeDarkMode();
+      } else {
+        changeLightMode();
       }
     } else {
       if (value == 'dark') {

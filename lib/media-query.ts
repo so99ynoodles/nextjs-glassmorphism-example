@@ -10,7 +10,8 @@ export const mq = {
     mobile: `(max-width: ${breakpoints.mobile - 1}px)`,
     tablet: `(max-width: ${breakpoints.tablet - 1}px)`,
     laptop: `(max-width: ${breakpoints.laptop - 1}px)`,
-    desktop: `(min-width: ${breakpoints.laptop}px)`,
+    desktop: `(max-width: ${breakpoints.desktop - 1}px)`,
+    max: `(min-width: ${breakpoints.desktop}px)`,
   },
   min: {
     mobile: `(min-width: ${breakpoints.mobile}px)`,

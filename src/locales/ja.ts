@@ -18,4 +18,8 @@ export default {
   search: '検索...',
   themeSetting: 'テーマ設定',
   langSetting: '言語設定',
+  relatedArticles: '関連記事',
+  prevArticle: '前の記事',
+  nextArticle: '次の記事',
+  tags: 'タグ',
 };

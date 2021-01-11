@@ -22,13 +22,13 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
   return (
     <>
       <TwitterShareButton url={url} title={title} via={TWITTER_ID}>
-        <FaTwitter />
+        <FaTwitter size="1.5rem" fill="var(--font-color-sub)" />
       </TwitterShareButton>
       <FacebookShareButton url={url}>
-        <FaFacebook />
+        <FaFacebook size="1.5rem" fill="var(--font-color-sub)" />
       </FacebookShareButton>
       <LineShareButton title={title} url={url}>
-        <FaLine />
+        <FaLine size="1.5rem" fill="var(--font-color-sub)" />
       </LineShareButton>
     </>
   );

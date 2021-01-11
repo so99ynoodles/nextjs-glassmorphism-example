@@ -14,6 +14,103 @@ import {
 } from '../../../utils/article/related';
 import { HtmlHead } from '../../../components/HtmlHead';
 import { ArticleDetail } from '../../../components/ArticleDetail';
+import styled from '@emotion/styled';
+import { useLocale } from '../../../utils/useLocale';
+import { mq } from '../../../../lib/media-query';
+import {
+  ShareButtons,
+  ShareButtonsHorizontal,
+} from '../../../components/ShareButtons';
+import { BlogThumbnail } from '../../../components/BlogThumbnail';
+
+const ContentWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
+
+const SocialShare = styled.div`
+  position: fixed;
+  top: 6rem;
+  left: 9rem;
+  width: 4rem;
+  background: rgba(var(--bg-color), 0.4);
+  border-radius: 1.5rem;
+  box-shadow: var(--box-shadow-required);
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h5 {
+    color: var(--font-color-sub);
+  }
+
+  @media ${mq.max.laptop} {
+    display: none;
+  }
+`;
+
+const RelatedArticles = styled.div`
+  position: fixed;
+  top: 6rem;
+  right: -1.5rem;
+  width: 15rem;
+  background: rgba(var(--bg-color), 0.4);
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow-required);
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  backdrop-filter: blur(0.25rem);
+
+  h5 {
+    color: var(--font-color-sub);
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  @media ${mq.max.desktop} {
+    position: relative;
+    top: 1rem;
+    right: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+`;
+
+const Content = styled.div`
+  background: rgba(var(--bg-color), 0.4);
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow-required);
+  border: 2px solid var(--border-color);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media ${mq.max.tablet} {
+    padding: 0;
+  }
+`;
+
+const Blog = styled.div`
+  background: rgba(var(--bg-color), 0.4);
+  border-radius: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow-required);
+  max-width: 40rem;
+  padding: 1rem 2rem;
+
+  @media ${mq.max.laptop} {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  @media ${mq.max.mobile} {
+    border: none;
+  }
+`;
 
 type BlogPostProps = {
   article: Article;
@@ -30,6 +127,7 @@ export const BlogPost: React.FC<BlogPostProps> = ({
   prevArticle,
   nextArticle,
 }) => {
+  const locale = useLocale();
   const { slug } = article;
   const { title, tags, hero } = article.frontMatter;
   const blogUrl = `/blog/posts/${slug}`;
@@ -46,7 +144,35 @@ export const BlogPost: React.FC<BlogPostProps> = ({
         url={blogUrl}
         {...ogImage}
       />
-      <ArticleDetail contentHtml={content} />
+      <ContentWrapper>
+        <SocialShare>
+          <ShareButtons title={title} urlBlog={blogUrl} />
+        </SocialShare>
+        <Content>
+          <Blog>
+            <ArticleDetail contentHtml={content} />
+            <ShareButtonsHorizontal title={title} urlBlog={blogUrl} />
+          </Blog>
+        </Content>
+        <RelatedArticles>
+          <h5>{locale.relatedArticles}</h5>
+          {relatedArticles.map((article) => (
+            <BlogThumbnail key={article.slug} article={article} />
+          ))}
+          {prevArticle && (
+            <>
+              <h5>{locale.prevArticle}</h5>
+              <BlogThumbnail article={prevArticle} />
+            </>
+          )}
+          {nextArticle && (
+            <>
+              <h5>{locale.nextArticle}</h5>
+              <BlogThumbnail article={nextArticle} />
+            </>
+          )}
+        </RelatedArticles>
+      </ContentWrapper>
     </>
   );
 };

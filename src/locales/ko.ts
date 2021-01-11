@@ -18,4 +18,8 @@ export default {
   search: '검색...',
   themeSetting: '테마 설정',
   langSetting: '언어 설정',
+  relatedArticles: '관련글',
+  prevArticle: '이전글',
+  nextArticle: '다음글',
+  tags: '태그',
 };
