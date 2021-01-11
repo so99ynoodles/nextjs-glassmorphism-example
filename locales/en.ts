@@ -23,4 +23,5 @@ export default {
   nextArticle: 'Next',
   tags: 'Tags',
   noSearchResult: 'No results found',
+  pageDescription: 'A Japanese developer blog',
 };

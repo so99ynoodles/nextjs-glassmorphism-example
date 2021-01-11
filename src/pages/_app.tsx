@@ -4,8 +4,8 @@ import { SSRProvider } from '@react-aria/ssr';
 import { OverlayProvider } from '@react-aria/overlays';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
+import { useRouter } from 'next/router';
 // import * as gtag from '../utils/analytics/gtag';
-// import { useRouter } from 'next/router';
 
 import '../../styles/index.css';
 import '../../styles/prism.scss';
@@ -14,7 +14,7 @@ import { useColorMode } from '../utils/colorMode';
 
 function MyApp({ Component, pageProps }) {
   useColorMode();
-  // const router = useRouter();
+  const { locale = 'ja' } = useRouter();
   // React.useEffect(() => {
   //   if (!gtag.GA_TRACKING_ID) return;
 
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <SSRProvider>
       <OverlayProvider style={{ height: '100%', width: '100%' }}>
-        <DefaultSeo {...SEO} />
+        <DefaultSeo {...SEO[locale]} />
         <Layout>
           <Component {...pageProps} />
         </Layout>

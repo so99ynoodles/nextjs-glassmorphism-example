@@ -23,4 +23,5 @@ export default {
   nextArticle: '다음글',
   tags: '태그',
   noSearchResult: '검색결과가 없습니다',
+  pageDescription: '한 일본거주 개발자의 블로그',
 };

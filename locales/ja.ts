@@ -23,4 +23,5 @@ export default {
   nextArticle: '次の記事',
   tags: 'タグ',
   noSearchResult: '検索結果がありません',
+  pageDescription: 'とある日本住在エンジニアのブログ',
 };

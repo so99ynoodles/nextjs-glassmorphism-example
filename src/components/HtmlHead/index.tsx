@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo';
 import { NextSeoProps } from 'next-seo/lib/types';
 
 import { SITE_NAME, SITE_URL } from '../../utils/env';
+import { useLocale } from '../../utils/useLocale';
 
 export type SeoProps = {
   title?: string;
@@ -13,17 +14,16 @@ export type SeoProps = {
 };
 type HtmlHeadProps = SeoProps;
 
-export const defaultDescription = 'An another developer blog';
-
 export const HtmlHead: React.FC<HtmlHeadProps> = ({
   title,
   description,
   url,
   image,
 }) => {
+  const locale = useLocale();
   const seoProps: NextSeoProps = {
     title: title ? `${title} | ${SITE_NAME}` : SITE_NAME,
-    description: description || defaultDescription,
+    description: description || locale.pageDescription,
     openGraph: {
       title,
       description,
