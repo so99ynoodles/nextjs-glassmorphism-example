@@ -4,6 +4,7 @@ module.exports = {
   i18n: {
     locales: ['en', 'ja', 'ko'],
     defaultLocale: 'ja',
+    localeDetection: false,
   },
   async redirects() {
     return [
