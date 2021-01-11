@@ -14,16 +14,9 @@ export const getSortedPosts = (locale = 'ja') => {
     //Extracts contents of the MDX file
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
-
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    const formattedDate = new Date(data.date).toLocaleDateString(
-      locale,
-      options
-    );
-
     const frontmatter = {
       ...data,
-      date: formattedDate,
+      date: data.date,
     };
     return {
       slug,

@@ -1,11 +1,9 @@
 import matter from 'gray-matter';
-import format from 'date-fns/format';
 
 import { ValidationError } from '../error/Validation';
 import { PropertyRequiredError } from '../error/PropertyRequired';
 import { isValidISODate } from '../date/is-valid';
 import { stripMarkdown } from './markdown';
-import { getDateLocale } from '../useLocale';
 
 /** 記事の公開状態 */
 export type ArticleStatus = 'published' | 'draft';
@@ -107,18 +105,19 @@ export const getArticleFromMdxSource = async (source: string, slug: string) => {
   } as Article;
 };
 
+export const getDate = (date: string, locale: string) => {
+  const options = { month: 'long', day: 'numeric', year: 'numeric' };
+  const formattedDate = new Date(date).toLocaleDateString(locale, options);
+
+  return formattedDate;
+};
+
 /**
  * 投稿日時を整形して返す
  * @param dateFormat 日付フォーマット
  */
-export const getDateFormatted = (
-  article: Article,
-  dateFormat = 'yyyy/MM/dd',
-  locale
-) => {
-  return format(new Date(article.frontMatter.date), dateFormat, {
-    locale: getDateLocale(locale),
-  });
+export const getDateFormatted = (article: Article, locale: string) => {
+  return getDate(article.frontMatter.date, locale);
 };
 
 /** 記事が公開済みかどうか */

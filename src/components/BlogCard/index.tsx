@@ -125,9 +125,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
           <strong>{article.frontMatter.title}</strong>
         </div>
         <p>
-          <DateText>
-            {getDateFormatted(article, 'MMM do (yyyy)', locale)}
-          </DateText>
+          <DateText>{getDateFormatted(article, locale)}</DateText>
           {article.frontMatter.tags.map((tag) => (
             <Tag key={tag} tag={tag} noMargin />
           ))}

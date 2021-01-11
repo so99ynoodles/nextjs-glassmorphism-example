@@ -4,6 +4,7 @@ import { useHover, usePress } from '@react-aria/interactions';
 import { useRouter } from 'next/router';
 import { Card } from '../Card';
 import { useLocale } from '../../utils/useLocale';
+import { getDate } from '../../utils/article/entity';
 
 const StyledCard = styled(Card)`
   margin-top: 1rem;
@@ -45,7 +46,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
       ) : (
         <>
           <h3>{result.title}</h3>
-          <p>{result.date}</p>
+          <p>{getDate(result.date, locale)}</p>
         </>
       )}
     </StyledCard>
