@@ -2,22 +2,33 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
+const locales = ['ja', 'en', 'ko'];
+
 function postData() {
-  const postsDirectory = path.join(process.cwd(), 'public', '/posts/ja');
-  const dirNames = fs.readdirSync(postsDirectory);
-  const paths = dirNames.map((dir) => dir.replace(/\.mdx?/, ''));
-  const posts = paths.map((fileName) => {
-    const fullPath = path.join(postsDirectory, fileName, 'index.md');
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const matterResult = matter(fileContents);
-    return {
-      slug: fileName,
-      title: matterResult.data.title,
-      excerpt: matterResult.excerpt,
-      date: matterResult.data.date,
-    };
-  });
-  return `export const posts = ${JSON.stringify(posts)}`;
+  const localPosts = locales.reduce((acc, locale) => {
+    const postsDirectory = path.join(
+      process.cwd(),
+      'public',
+      '/posts/' + locale
+    );
+    const dirNames = fs.readdirSync(postsDirectory);
+    const paths = dirNames.map((dir) => dir.replace(/\.mdx?/, ''));
+    const posts = paths.map((fileName) => {
+      const fullPath = path.join(postsDirectory, fileName, 'index.md');
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const matterResult = matter(fileContents);
+      return {
+        slug: fileName,
+        title: matterResult.data.title,
+        excerpt: matterResult.excerpt,
+        date: matterResult.data.date,
+      };
+    });
+    acc[locale] = posts;
+    return acc;
+  }, {});
+
+  return `export const posts = ${JSON.stringify(localPosts)}`;
 }
 
 try {

@@ -7,6 +7,7 @@ import { SearchInput } from '../SearchInput';
 import { useLocale } from '../../utils/useLocale';
 import { ResultCard } from '../ResultCard';
 import { Card } from '../Card';
+import { useRouter } from 'next/router';
 
 interface ModalProps {
   title?: string;
@@ -40,6 +41,7 @@ const ModalCard = styled.div`
 
 export const SearchModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const ref = React.useRef();
+  const { locale: lang } = useRouter();
   const locale = useLocale();
   const { overlayProps } = useOverlay(
     {
@@ -53,7 +55,7 @@ export const SearchModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [status, setStatus] = React.useState('idle');
   const [results, setResults] = React.useState<any[]>([]);
   const handleSubmit = (value: string) =>
-    fetch(`/api/search?keyword=${value}`)
+    fetch(`/api/search?keyword=${value}&locale=${lang}`)
       .then((res) => res.json())
       .then((data) => {
         setResults(data.results);

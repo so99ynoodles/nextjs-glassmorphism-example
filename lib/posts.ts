@@ -3,9 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 
 //Finding directory named "posts" from the current working directory of Node.
-const postDirectory = path.join(process.cwd(), 'public', '/posts/ja');
-
-export const getSortedPosts = () => {
+export const getSortedPosts = (locale = 'ja') => {
+  const postDirectory = path.join(process.cwd(), 'public', '/posts/' + locale);
   //Reads all the files in the post directory
   const fileNames = fs.readdirSync(postDirectory);
 
@@ -18,7 +17,7 @@ export const getSortedPosts = () => {
 
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     const formattedDate = new Date(data.date).toLocaleDateString(
-      'en-US',
+      locale,
       options
     );
 
