@@ -1,6 +1,10 @@
 const RemoveServiceWorkerPlugin = require('webpack-remove-serviceworker-plugin');
 
 module.exports = {
+  i18n: {
+    locales: ['en', 'ja', 'ko'],
+    defaultLocale: 'ja',
+  },
   async redirects() {
     return [
       {
@@ -9,20 +13,11 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/tags',
-        destination: '/blog/tags',
-        permanent: true,
-      },
-      {
         source: '/:slug([0-9]{4}-[0-9]{2}-[0-9]{2}.*$)',
         destination: '/blog/posts/:slug',
         permanent: true,
       },
     ];
-  },
-  i18n: {
-    locales: ['en', 'ja', 'ko'],
-    defaultLocale: 'ja',
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(new RemoveServiceWorkerPlugin());
