@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ locale = 'ja' }) => {
 
   return {
     props: {
-      pickupArticles,
+      pickupArticles: [pickupArticles[0]],
     } as HomePageProps,
   };
 };
