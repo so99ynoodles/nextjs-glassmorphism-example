@@ -22,6 +22,7 @@ import {
   ShareButtonsHorizontal,
 } from '../../../components/ShareButtons';
 import { BlogThumbnail } from '../../../components/BlogThumbnail';
+import { generateCache } from '../../../utils/article/cache';
 
 const ContentWrapper = styled.div`
   position: relative;

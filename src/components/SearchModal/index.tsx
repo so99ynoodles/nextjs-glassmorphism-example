@@ -4,7 +4,6 @@ import { FocusScope } from '@react-aria/focus';
 import styled from '@emotion/styled';
 import React from 'react';
 import { SearchInput } from '../SearchInput';
-import { mq } from '../../../lib/media-query';
 import { useLocale } from '../../utils/useLocale';
 
 interface ModalProps {
