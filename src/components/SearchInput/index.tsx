@@ -36,6 +36,10 @@ const Input = styled.input`
     color: var(--font-color-help);
     font-weight: bold;
   }
+
+  @media ${mq.max.mobile} {
+    font-size: 1rem;
+  }
 `;
 
 interface SearchInputProps
