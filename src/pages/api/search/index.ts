@@ -4,8 +4,10 @@ export default (req, res) => {
   const locale = req.query.locale || 'ja';
   const posts =
     process.env.NODE_ENV === 'production'
-      ? require('../../../cache/data').posts
+      ? require('../../../../cache/data').posts
       : getSortedPosts(locale);
+
+  console.log(posts);
 
   const results = req.query.keyword
     ? (posts || []).filter((post) =>
