@@ -5,6 +5,8 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { SearchInput } from '../SearchInput';
 import { useLocale } from '../../utils/useLocale';
+import { ResultCard } from '../ResultCard';
+import { Card } from '../Card';
 
 interface ModalProps {
   title?: string;
@@ -48,6 +50,19 @@ export const SearchModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     },
     ref
   );
+  const [status, setStatus] = React.useState('idle');
+  const [results, setResults] = React.useState<any[]>([]);
+  const handleSubmit = (value: string) =>
+    fetch(`/api/search?keyword=${value}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setResults(data.results);
+        setStatus('searched');
+      })
+      .catch((e) => {
+        console.error(e);
+        setStatus('error');
+      });
 
   usePreventScroll();
   const { modalProps } = useModal();
@@ -56,7 +71,22 @@ export const SearchModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     <Backdrop>
       <FocusScope contain autoFocus>
         <ModalCard {...overlayProps} {...dialogProps} {...modalProps} ref={ref}>
-          <SearchInput placeholder={locale.search} />
+          <SearchInput onSubmit={handleSubmit} placeholder={locale.search} />
+          {status !== 'idle' && (
+            <>
+              {results.length ? (
+                results.map((result) => (
+                  <ResultCard
+                    onClose={onClose}
+                    result={result}
+                    key={result.slug}
+                  />
+                ))
+              ) : (
+                <ResultCard error />
+              )}
+            </>
+          )}
         </ModalCard>
       </FocusScope>
     </Backdrop>

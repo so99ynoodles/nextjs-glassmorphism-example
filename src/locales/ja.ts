@@ -22,4 +22,5 @@ export default {
   prevArticle: '前の記事',
   nextArticle: '次の記事',
   tags: 'タグ',
+  noSearchResult: '検索結果がありません',
 };

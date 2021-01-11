@@ -22,4 +22,5 @@ export default {
   prevArticle: 'Previous',
   nextArticle: 'Next',
   tags: 'Tags',
+  noSearchResult: 'No results found',
 };

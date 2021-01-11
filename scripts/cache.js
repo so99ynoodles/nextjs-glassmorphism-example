@@ -11,8 +11,10 @@ function postData() {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
     return {
-      id: fileName,
+      slug: fileName,
       title: matterResult.data.title,
+      excerpt: matterResult.excerpt,
+      date: matterResult.data.date,
     };
   });
   return `export const posts = ${JSON.stringify(posts)}`;

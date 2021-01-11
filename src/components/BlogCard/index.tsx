@@ -7,18 +7,15 @@ import { mq } from '../../../lib/media-query';
 import { getDateFormatted } from '../../utils/article/entity';
 import { Tag } from '../Tag';
 import { useRouter } from 'next/router';
+import { Card as StyledCard } from '../Card';
 
 interface BlogCardProps {
   article: Article;
 }
 
-const Card = styled.div`
+const Card = styled(StyledCard)`
   position: relative;
-  border-radius: 2rem;
-  background: rgba(var(--bg-color), 0.6);
-  box-shadow: var(--box-shadow-lg);
   padding: 1rem 2.5rem 1rem 1.25rem;
-  border: 1px solid var(--border-color);
   width: 100%;
   display: flex;
   align-items: center;

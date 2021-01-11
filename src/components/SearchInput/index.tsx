@@ -38,13 +38,16 @@ const Input = styled.input`
   }
 `;
 
-interface SearchInputProps extends HTMLAttributes<HTMLInputElement> {
+interface SearchInputProps
+  extends Omit<HTMLAttributes<HTMLInputElement>, 'onSubmit'> {
   placeholder?: string;
+  onSubmit?: (value: string) => void;
 }
 
 export const SearchInput: React.FC<SearchInputProps> = ({
   placeholder = 'Search...',
   onFocus,
+  onSubmit,
 }) => {
   const ref = useRef(null);
   const state = useSearchFieldState({});
@@ -52,7 +55,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
     {
       placeholder,
       'aria-label': 'Search',
-      onSubmit: (value) => console.log(value),
+      onSubmit,
       onFocus,
     },
     state,

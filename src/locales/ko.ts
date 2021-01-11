@@ -22,4 +22,5 @@ export default {
   prevArticle: '이전글',
   nextArticle: '다음글',
   tags: '태그',
+  noSearchResult: '검색결과가 없습니다',
 };
