@@ -7,10 +7,8 @@ export default (req, res) => {
       ? require('../../../../cache/data').posts
       : getSortedPosts(locale);
 
-  console.log(posts);
-
   const results = req.query.keyword
-    ? (posts || []).filter((post) =>
+    ? posts[locale].filter((post) =>
         post.title.toLowerCase().includes(req.query.keyword.toLowerCase())
       )
     : [];

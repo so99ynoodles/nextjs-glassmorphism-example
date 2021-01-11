@@ -31,11 +31,13 @@ export const getSortedPosts = (locale = 'ja') => {
     };
   });
 
-  return allPostsData.sort((a, b) => {
-    if (new Date(a.date) < new Date(b.date)) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return {
+    [locale]: allPostsData.sort((a, b) => {
+      if (new Date(a.date) < new Date(b.date)) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }),
+  };
 };
