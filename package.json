@@ -7,7 +7,8 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "eslint src --ext .ts,.tsx",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "cache:posts": "ts-node scripts/cache.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.1.2",
@@ -60,6 +61,7 @@
     "husky": "^4.3.7",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
   "lint-staged": {
