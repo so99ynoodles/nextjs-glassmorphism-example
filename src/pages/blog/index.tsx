@@ -4,7 +4,6 @@ import React from 'react';
 import { mq } from '../../../lib/media-query';
 import { BlogCard } from '../../components/BlogCard';
 import { HtmlHead } from '../../components/HtmlHead';
-import { SearchInput } from '../../components/SearchInput';
 import { Tag } from '../../components/Tag';
 import { getArticles } from '../../utils/article/fs.server';
 import { sortArticlesByDateDesc } from '../../utils/article/sorter';
@@ -59,15 +58,6 @@ const SideContent = styled.div`
   }
 `;
 
-const Search = styled.div`
-  display: block;
-  margin-bottom: 2rem;
-
-  @media ${mq.max.laptop} {
-    display: none;
-  }
-`;
-
 export const IndexPage: React.FC<IndexPageProps> = ({ articles, tags }) => {
   const locale = useLocale();
   return (
@@ -75,9 +65,6 @@ export const IndexPage: React.FC<IndexPageProps> = ({ articles, tags }) => {
       <HtmlHead title={locale.blog} />
       <ContentWrapper>
         <Content>
-          <Search>
-            <SearchInput placeholder={locale.search} />
-          </Search>
           {articles.map((article) => (
             <BlogCard key={article.frontMatter.title} article={article} />
           ))}

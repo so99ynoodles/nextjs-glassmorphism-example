@@ -1,7 +1,7 @@
 export default {
   logo: 'ロゴ',
   home: 'ホーム',
-  about: '私',
+  profile: 'プロフィール',
   work: '作業物',
   blog: 'ブログ',
   menu: 'メニュー',

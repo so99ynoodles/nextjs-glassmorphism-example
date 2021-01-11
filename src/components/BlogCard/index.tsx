@@ -111,7 +111,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
     >
       <ImageContainer>
         {article.frontMatter.image ? (
-          <Image src={article.frontMatter.image} width={32} height={32} />
+          <Image src={article.frontMatter.hero} width={32} height={32} />
         ) : (
           article.frontMatter.emoji
         )}
@@ -120,7 +120,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
         <div>
           <MobileImageContainer>
             {article.frontMatter.image ? (
-              <Image src={article.frontMatter.image} width={32} height={32} />
+              <Image src={article.frontMatter.hero} width={32} height={32} />
             ) : (
               article.frontMatter.emoji
             )}

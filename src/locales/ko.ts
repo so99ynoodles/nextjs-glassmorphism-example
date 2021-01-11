@@ -1,7 +1,7 @@
 export default {
   logo: '로고',
   home: '홈',
-  about: '소개',
+  profile: '프로필',
   work: '작업물',
   blog: '블로그',
   menu: '메뉴',

@@ -44,6 +44,7 @@ interface SearchInputProps extends HTMLAttributes<HTMLInputElement> {
 
 export const SearchInput: React.FC<SearchInputProps> = ({
   placeholder = 'Search...',
+  onFocus,
 }) => {
   const ref = useRef(null);
   const state = useSearchFieldState({});
@@ -52,6 +53,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
       placeholder,
       'aria-label': 'Search',
       onSubmit: (value) => console.log(value),
+      onFocus,
     },
     state,
     ref

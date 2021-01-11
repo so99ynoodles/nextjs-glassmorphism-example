@@ -5,7 +5,7 @@ category: Technology
 tags: ['deno', 'node', 'JavaScript']
 emoji: '🦕'
 status: 'published'
-image: ''
+hero: ''
 locale: 'ja'
 ---
 

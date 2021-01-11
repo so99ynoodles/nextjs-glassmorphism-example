@@ -18,6 +18,8 @@ import { useLocale } from '../utils/useLocale';
 import { ConfigModal } from '../components/ConfigModal';
 import { OverlayContainer } from '@react-aria/overlays';
 import { useRouter } from 'next/router';
+import { SearchIcon } from '../assets/icons/Search';
+import { SearchModal } from '../components/SearchModal';
 
 const Root = styled.div`
   height: 100%;
@@ -92,11 +94,19 @@ const Navigation = styled.nav`
     margin-top: 1.5rem;
   }
 
+  button {
+    margin-top: 1.5rem;
+  }
+
   @media ${mq.max.laptop} {
     flex-direction: row;
     padding: 1rem 1rem 0.5rem 1rem;
     margin-right: 0;
     margin-bottom: 0.5rem;
+
+    button {
+      margin-top: 0;
+    }
   }
 `;
 
@@ -128,7 +138,8 @@ const SmallNavigation = styled.nav`
 export const Layout = ({ children }) => {
   const { locale: lang } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const state = useOverlayTriggerState({});
+  const configState = useOverlayTriggerState({});
+  const searchState = useOverlayTriggerState({});
   const locale = useLocale();
   return (
     <Root>
@@ -145,7 +156,7 @@ export const Layout = ({ children }) => {
               <NavItem name={locale.home} exact href="/">
                 <HomeIcon className="nav-icon" />
               </NavItem>
-              <NavItem name={locale.about} href="/about">
+              <NavItem name={locale.profile} href="/profile">
                 <UserIcon className="nav-icon" />
               </NavItem>
               {/* <NavItem name={locale.work} href="/work">
@@ -154,13 +165,23 @@ export const Layout = ({ children }) => {
               <NavItem name={locale.blog} href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
+              <ActionButton
+                onPress={searchState.open}
+                large
+                name={locale.search}
+              >
+                <SearchIcon className="nav-icon" />
+              </ActionButton>
             </ul>
           </Responsive>
           <Search>
-            <SearchInput placeholder={locale.search} />
+            <SearchInput
+              onFocus={searchState.open}
+              placeholder={locale.search}
+            />
           </Search>
           <Responsive desktop>
-            <ActionButton onPress={state.open} name="Configuration">
+            <ActionButton onPress={configState.open} name="Configuration">
               <ConfigIcon className="nav-icon" />
             </ActionButton>
           </Responsive>
@@ -180,7 +201,7 @@ export const Layout = ({ children }) => {
               <NavItem name={locale.home} exact href="/">
                 <HomeIcon className="nav-icon" />
               </NavItem>
-              <NavItem name={locale.about} href="/about">
+              <NavItem name={locale.profile} href="/profile">
                 <UserIcon className="nav-icon" />
               </NavItem>
               {/* <NavItem name={locale.work}href="/work">
@@ -189,7 +210,7 @@ export const Layout = ({ children }) => {
               <NavItem name={locale.blog} href="/blog">
                 <DocumentIcon className="nav-icon" />
               </NavItem>
-              <ActionButton onPress={state.open} name={locale.config}>
+              <ActionButton onPress={configState.open} name={locale.config}>
                 <ConfigIcon className="nav-icon" />
               </ActionButton>
             </ul>
@@ -197,12 +218,20 @@ export const Layout = ({ children }) => {
         )}
         <Main role="main">{children}</Main>
       </Container>
-      {state.isOpen && (
+      {configState.isOpen && (
         <OverlayContainer>
           <ConfigModal
-            isOpen={state.isOpen}
+            isOpen={configState.isOpen}
             title={locale.config}
-            onClose={state.close}
+            onClose={configState.close}
+          />
+        </OverlayContainer>
+      )}
+      {searchState.isOpen && (
+        <OverlayContainer>
+          <SearchModal
+            isOpen={searchState.isOpen}
+            onClose={searchState.close}
           />
         </OverlayContainer>
       )}

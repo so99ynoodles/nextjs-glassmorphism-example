@@ -3,14 +3,17 @@ export const SearchIcon: React.FC<TwoColorIconProps> = ({
   mainFill,
   subFill,
   size = '1rem',
+  className,
 }) => (
   <svg
+    className={className}
     width={size}
     height={size}
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
+      className="path-sub"
       d="M20 34C27.732 34 34 27.732 34 20C34 12.268 27.732 6 20 6C12.268 6 6 12.268 6 20C6 27.732 12.268 34 20 34Z"
       fill={subFill || fill}
     />

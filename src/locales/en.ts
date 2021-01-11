@@ -1,7 +1,7 @@
 export default {
   logo: 'Logo',
   home: 'Home',
-  about: 'About Me',
+  profile: 'Profile',
   work: 'My Work',
   blog: 'Blog',
   menu: 'Menu',

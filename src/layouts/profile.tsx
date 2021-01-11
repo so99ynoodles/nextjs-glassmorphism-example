@@ -29,11 +29,11 @@ const Content = styled.div`
   }
 `;
 
-export default function AboutLayout({ children }) {
+export default function ProfileLayout({ children }) {
   const locale = useLocale();
   return (
     <Container>
-      <HtmlHead title={locale.about} />
+      <HtmlHead title={locale.profile} />
       <Content>{children}</Content>
     </Container>
   );
