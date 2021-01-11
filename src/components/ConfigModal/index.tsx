@@ -7,8 +7,8 @@ import { useLocale } from '../../utils/useLocale';
 import { ModeRadio } from '../ModeRadio';
 import { ActionButton } from '../ActionButton';
 import { FaTimes } from 'react-icons/fa';
-// import { useButton } from '@react-aria/button';
-// import { useRouter } from 'next/router';
+import { useButton } from '@react-aria/button';
+import { useRouter } from 'next/router';
 
 interface ModalProps {
   title?: string;
@@ -56,59 +56,59 @@ const SectionHeading = styled.h5`
   color: var(--font-color-sub);
 `;
 
-// const ButtonGroup = styled.div`
-//   display: flex;
-// `;
+const ButtonGroup = styled.div`
+  display: flex;
+`;
 
-// const Button = styled.button<{ isDisabled?: boolean }>`
-//   border: none;
-//   border-radius: 0.5rem;
-//   background: ${(props) =>
-//     props.isDisabled
-//       ? 'rgba(var(--bg-color), 0.9)'
-//       : 'rgba(var(--bg-color), 0.3)'};
-//   border: 1px solid var(--border-color);
-//   box-shadow: var(--box-shadow-md), var(--box-shadow-lg);
-//   padding: 1rem;
-//   font-size: 2rem;
-//   width: 3rem;
-//   height: 3rem;
-//   max-width: 3rem;
-//   max-height: 3rem;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-top: 1rem;
-//   margin-right: 1rem;
-//   cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
-// `;
+const Button = styled.button<{ isDisabled?: boolean }>`
+  border: none;
+  border-radius: 0.5rem;
+  background: ${(props) =>
+    props.isDisabled
+      ? 'rgba(var(--bg-color), 0.9)'
+      : 'rgba(var(--bg-color), 0.3)'};
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow-md), var(--box-shadow-lg);
+  padding: 1rem;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  max-width: 3rem;
+  max-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
+`;
 
-// const LangButton = ({ children, isDisabled, onPress }) => {
-//   const ref = React.useRef();
-//   const { buttonProps } = useButton(
-//     {
-//       isDisabled,
-//       onPress,
-//     },
-//     ref
-//   );
+const LangButton = ({ children, isDisabled, onPress }) => {
+  const ref = React.useRef();
+  const { buttonProps } = useButton(
+    {
+      isDisabled,
+      onPress,
+    },
+    ref
+  );
 
-//   return (
-//     <Button {...buttonProps} isDisabled={isDisabled}>
-//       {children}
-//     </Button>
-//   );
-// };
+  return (
+    <Button {...buttonProps} isDisabled={isDisabled}>
+      {children}
+    </Button>
+  );
+};
 
 export const ConfigModal: React.FC<ModalProps> = ({
   title,
   isOpen,
   onClose,
 }) => {
-  // const { locale: lang, push } = useRouter();
-  // const onLocalChange = (locale: string) => {
-  //   push('/', '/', { locale });
-  // };
+  const { locale: lang, push } = useRouter();
+  const onLocalChange = (locale: string) => {
+    push('/', '/', { locale });
+  };
   const locale = useLocale();
   const ref = React.useRef();
   const { overlayProps } = useOverlay(
@@ -138,7 +138,7 @@ export const ConfigModal: React.FC<ModalProps> = ({
             <SectionHeading>{locale.themeSetting}</SectionHeading>
             <ModeRadio />
           </Section>
-          {/* <Section>
+          <Section>
             <SectionHeading>{locale.langSetting}</SectionHeading>
             <ButtonGroup>
               <LangButton
@@ -160,7 +160,7 @@ export const ConfigModal: React.FC<ModalProps> = ({
                 🇰🇷
               </LangButton>
             </ButtonGroup>
-          </Section> */}
+          </Section>
         </ModalCard>
       </FocusScope>
     </Backdrop>

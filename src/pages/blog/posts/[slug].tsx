@@ -185,7 +185,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
       const dirNamesThatHaveMdx = getDirNamesThatHaveMdx(`/posts/${locale}`);
       const paths = dirNamesThatHaveMdx.map((dir) => ({
         params: { slug: dir.replace(/\.mdx?/, '') },
-        // locale,
+        locale,
       }));
       return paths;
     })
