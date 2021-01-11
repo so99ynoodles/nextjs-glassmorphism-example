@@ -103,6 +103,7 @@ const Navigation = styled.nav`
     padding: 1rem 1rem 0.5rem 1rem;
     margin-right: 0;
     margin-bottom: 0.5rem;
+    min-height: 4rem;
 
     button {
       margin-top: 0;
@@ -123,6 +124,7 @@ const Search = styled.div`
 const SmallNavigation = styled.nav`
   display: none;
   padding-bottom: 0.5rem;
+  min-height: 3rem;
 
   ul {
     display: flex;
