@@ -1,0 +1,1 @@
+export const posts = [{"id":"about-svelte","title":"ReactとVueを改善したSvelteというライブラリーについて"},{"id":"will-deno-beat-node","title":"Denoの登場でNode.jsの時代は終わるのか？"}]

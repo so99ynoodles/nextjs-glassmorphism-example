@@ -27,3 +27,5 @@ export const generateCache = async (contentDir: string) => {
     console.log('Posts cached.');
   });
 };
+
+generateCache('/posts/ja');
