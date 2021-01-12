@@ -64,9 +64,11 @@ const RelatedArticles = styled.div`
   padding: 1rem;
   backdrop-filter: blur(0.25rem);
 
-  h5 {
+  p {
     color: var(--font-color-sub);
     margin: 1rem 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
   }
 
   @media ${mq.max.desktop} {
@@ -155,19 +157,19 @@ export const BlogPost: React.FC<BlogPostProps> = ({
           </Blog>
         </Content>
         <RelatedArticles>
-          <h5>{locale.relatedArticles}</h5>
+          <p>{locale.relatedArticles}</p>
           {relatedArticles.map((article) => (
             <BlogThumbnail key={article.slug} article={article} />
           ))}
           {prevArticle && (
             <>
-              <h5>{locale.prevArticle}</h5>
+              <p>{locale.prevArticle}</p>
               <BlogThumbnail article={prevArticle} />
             </>
           )}
           {nextArticle && (
             <>
-              <h5>{locale.nextArticle}</h5>
+              <p>{locale.nextArticle}</p>
               <BlogThumbnail article={nextArticle} />
             </>
           )}

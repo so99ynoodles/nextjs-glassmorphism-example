@@ -34,7 +34,7 @@
   --box-shadow-md: 0px 0.5rem 1rem rgba(84, 209, 219, 0.3);
   --box-shadow-lg: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
   --box-shadow-required: 0px 1rem 2rem rgba(84, 209, 219, 0.2);
-  --code-color: #62b0e8;
+  --code-color: #0a558c;
 }
 
 :root[theme='dark'] {
@@ -62,7 +62,7 @@
   --box-shadow-md: none;
   --box-shadow-lg: none;
   --box-shadow-required: 0px 1rem 2rem rgba(0, 0, 0, 0.2);
-  --code-color: #62b0e8;
+  --code-color: #0a558c;
 }
 
 html {
