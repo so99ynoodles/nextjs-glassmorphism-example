@@ -124,7 +124,8 @@ const Search = styled.div`
 const SmallNavigation = styled.nav`
   display: none;
   padding-bottom: 0.5rem;
-  min-height: 3rem;
+  min-height: 3.5rem;
+  height: 3.5rem;
 
   ul {
     display: flex;

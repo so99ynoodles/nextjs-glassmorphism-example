@@ -23,19 +23,17 @@ const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const ModalCard = styled.div`
   background: rgba(var(--bg-color), 0.6);
   border-radius: 2rem;
   box-shadow: var(--box-shadow-required);
-  min-width: 19rem;
   border: 2px solid var(--border-color);
   padding: 1.5rem;
   outline: none;
+  max-width: 40rem;
+  margin: auto;
 `;
 
 export const SearchModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
