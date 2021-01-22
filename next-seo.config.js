@@ -1,15 +1,15 @@
 export default {
   ja: {
-    title: 'so99ynoodles.dev',
-    description: 'とある日本住在エンジニアのブログ',
+    title: 'glassmorphism.io',
+    description: 'グラスモーフィズム',
     openGraph: {
       type: 'website',
       locale: 'ja_JP',
-      url: 'https://so99ynoodles.dev/',
-      site_name: 'so99ynoodles.dev',
+      url: 'https://glassmorphism.io/',
+      site_name: 'glassmorphism.io',
       images: [
         {
-          url: 'https://so99ynoodles-portfolio.vercel.app/so99ynoodles.png',
+          url: 'https://nextjs-glassmorphism-example.vercel.app/so99ynoodles.png',
         },
       ],
     },
@@ -19,16 +19,16 @@ export default {
     },
   },
   ko: {
-    title: 'so99ynoodles.dev',
-    description: '한 일본거주 개발자의 블로그',
+    title: 'glassmorphism.io',
+    description: '글래스모피즘',
     openGraph: {
       type: 'website',
       locale: 'ko_KR',
-      url: 'https://so99ynoodles.dev/',
-      site_name: 'so99ynoodles.dev',
+      url: 'https://glassmorphism.io/',
+      site_name: 'glassmorphism.io',
       images: [
         {
-          url: 'https://so99ynoodles-portfolio.vercel.app/so99ynoodles.png',
+          url: 'https://nextjs-glassmorphism-example.vercel.app/so99ynoodles.png',
         },
       ],
     },
@@ -38,16 +38,16 @@ export default {
     },
   },
   en: {
-    title: 'so99ynoodles.dev',
-    description: 'A Japanese developer blog',
+    title: 'glassmorphism.io',
+    description: 'glassmorphism',
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://so99ynoodles.dev/',
-      site_name: 'so99ynoodles.dev',
+      url: 'https://glassmorphism.io/',
+      site_name: 'glassmorphism.io',
       images: [
         {
-          url: 'https://so99ynoodles-portfolio.vercel.app/so99ynoodles.png',
+          url: 'https://nextjs-glassmorphism-example.vercel.app/so99ynoodles.png',
         },
       ],
     },
